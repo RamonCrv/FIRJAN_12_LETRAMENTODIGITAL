@@ -58,7 +58,10 @@ Scene Hierarchy:
 │       ├── ScoreText (TextMeshPro)
 │       ├── MessageText (TextMeshPro)
 │       ├── ScoreIcon (Image)
-│       └── RestartButton (Button)
+│       ├── RestartButton (Button)
+│       ├── ManualResetButton (Button)
+│       ├── TimerText (TextMeshPro)
+│       └── TimerFill (Image with Fill)
 ├── GameController (Empty GameObject)
 │   ├── DigitalLiteracyGameController script
 │   └── DigitalLiteracySetup script (optional)
@@ -85,12 +88,12 @@ Scene Hierarchy:
 #### FinalScreen GameObject:
 - Add `CanvasGroup` component
 - Add `FinalScreen` script
-- Assign UI components and score icons
+- Assign UI components, score icons, timer elements, and both restart buttons
 
 ### 3. Configuration
 
 The `config.json` file in StreamingAssets contains:
-- **timeoutSettings**: General (60s), Question (20s), Feedback (10s) timeouts
+- **timeoutSettings**: General (60s), Question (20s), Feedback (10s), Final Screen (15s) timeouts
 - **questions**: Array of 10 questions with alternatives and feedback
 
 ### 4. Input System
@@ -120,6 +123,7 @@ Back to Idle Screen
 - **General Timeout (60s)**: Returns to idle from any screen
 - **Question Timeout (20s)**: Auto-submits wrong answer
 - **Feedback Timeout (10s)**: Auto-continues to next question
+- **Final Screen Timeout (15s)**: Auto-returns to idle screen
 
 ## Customization
 
@@ -150,7 +154,8 @@ Modify `timeoutSettings` in `config.json`:
 "timeoutSettings": {
   "generalTimeoutSeconds": 60,
   "questionTimeoutSeconds": 20,
-  "feedbackTimeoutSeconds": 10
+  "feedbackTimeoutSeconds": 10,
+  "finalScreenTimeoutSeconds": 15
 }
 ```
 

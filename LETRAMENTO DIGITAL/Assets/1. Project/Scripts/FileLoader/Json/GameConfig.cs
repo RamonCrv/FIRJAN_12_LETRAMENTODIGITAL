@@ -9,6 +9,7 @@ namespace RealGames
         public int generalTimeoutSeconds = 60;
         public int questionTimeoutSeconds = 20;
         public int feedbackTimeoutSeconds = 10;
+        public int finalScreenTimeoutSeconds = 15;
     }
 
     [System.Serializable]

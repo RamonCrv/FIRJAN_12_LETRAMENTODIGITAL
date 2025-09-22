@@ -2,7 +2,8 @@
   "timeoutSettings": {
     "generalTimeoutSeconds": 60,
     "questionTimeoutSeconds": 20,
-    "feedbackTimeoutSeconds": 5
+    "feedbackTimeoutSeconds": 5,
+    "finalScreenTimeoutSeconds": 15
   },
   "questions": [
     {

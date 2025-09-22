@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class FinalScreen : CanvasScreen
 {
@@ -10,6 +11,11 @@ public class FinalScreen : CanvasScreen
     [SerializeField] private TextMeshProUGUI messageText;
     [SerializeField] private Button restartButton;
     [SerializeField] private Image scoreIcon;
+    
+    [Header("Auto Return Timer")]
+    [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private Image timerFill;
+    [SerializeField] private Button manualResetButton;
     
     [Header("Score Icons")]
     [SerializeField] private Sprite excellentIcon;
@@ -24,6 +30,7 @@ public class FinalScreen : CanvasScreen
     [SerializeField] private Color poorColor = Color.red;
     
     public static FinalScreen Instance;
+    private Coroutine autoReturnCoroutine;
     
     void Awake()
     {
@@ -33,20 +40,26 @@ public class FinalScreen : CanvasScreen
     
     void Start()
     {
-        SetupButton();
+        SetupButtons();
     }
     
-    void SetupButton()
+    void SetupButtons()
     {
         if (restartButton != null)
         {
             restartButton.onClick.AddListener(RestartGame);
+        }
+        
+        if (manualResetButton != null)
+        {
+            manualResetButton.onClick.AddListener(ManualResetGame);
         }
     }
     
     public void SetResults(int correctAnswers, int totalQuestions)
     {
         DisplayResults(correctAnswers, totalQuestions);
+        StartAutoReturnTimer();
     }
     
     void DisplayResults(int correctAnswers, int totalQuestions)
@@ -108,8 +121,58 @@ public class FinalScreen : CanvasScreen
         }
     }
     
+    void StartAutoReturnTimer()
+    {
+        if (autoReturnCoroutine != null)
+        {
+            StopCoroutine(autoReturnCoroutine);
+        }
+        
+        autoReturnCoroutine = StartCoroutine(AutoReturnTimerCountdown());
+    }
+    
+    IEnumerator AutoReturnTimerCountdown()
+    {
+        float timeRemaining = DigitalLiteracyGameController.Instance.gameConfig.timeoutSettings.finalScreenTimeoutSeconds;
+        float totalTime = timeRemaining;
+        
+        while (timeRemaining > 0)
+        {
+            if (timerText != null)
+            {
+                timerText.text = $"Voltando ao início em: {Mathf.Ceil(timeRemaining)}s";
+            }
+            
+            if (timerFill != null)
+            {
+                timerFill.fillAmount = timeRemaining / totalTime;
+            }
+            
+            timeRemaining -= Time.deltaTime;
+            yield return null;
+        }
+        
+        // Auto return to idle
+        RestartGame();
+    }
+    
     public void RestartGame()
     {
+        if (autoReturnCoroutine != null)
+        {
+            StopCoroutine(autoReturnCoroutine);
+        }
+        
+        DigitalLiteracyGameController.Instance?.ReturnToIdle();
+    }
+    
+    public void ManualResetGame()
+    {
+        if (autoReturnCoroutine != null)
+        {
+            StopCoroutine(autoReturnCoroutine);
+        }
+        
         DigitalLiteracyGameController.Instance?.ReturnToIdle();
     }
     
@@ -117,5 +180,14 @@ public class FinalScreen : CanvasScreen
     {
         base.TurnOn();
         // Screen is now active
+    }
+    
+    public override void TurnOff()
+    {
+        base.TurnOff();
+        if (autoReturnCoroutine != null)
+        {
+            StopCoroutine(autoReturnCoroutine);
+        }
     }
 }
