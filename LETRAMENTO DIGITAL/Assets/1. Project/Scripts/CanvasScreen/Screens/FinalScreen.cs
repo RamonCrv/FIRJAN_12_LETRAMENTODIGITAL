@@ -190,4 +190,13 @@ public class FinalScreen : CanvasScreen
             StopCoroutine(autoReturnCoroutine);
         }
     }
+    
+    void Update()
+    {
+        // Check if player presses "0" to return to idle screen
+        if (Input.GetKeyDown(KeyCode.Alpha0) && IsOn())
+        {
+            RestartGame();
+        }
+    }
 }

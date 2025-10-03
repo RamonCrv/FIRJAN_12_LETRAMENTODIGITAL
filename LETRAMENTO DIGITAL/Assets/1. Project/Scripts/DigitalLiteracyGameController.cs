@@ -89,10 +89,11 @@ public class DigitalLiteracyGameController : MonoBehaviour
         }
         
         // Handle idle screen input
-        if (currentState == GameState.Idle && Input.inputString == "0")
-        {
-            StartQuestions();
-        }
+        //if (currentState == GameState.Idle && Input.inputString == "0")
+        //{
+        //    Debug.Log("Entrou aqui talvez");
+        //    StartQuestions();
+        //}
         
         // Handle question screen input
         if (currentState == GameState.Question)

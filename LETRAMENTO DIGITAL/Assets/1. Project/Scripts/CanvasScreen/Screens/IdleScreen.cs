@@ -8,6 +8,7 @@ public class IdleScreen : CanvasScreen
     [SerializeField] private TextMeshProUGUI titleText;
     [SerializeField] private TextMeshProUGUI instructionText;
     [SerializeField] private Button startButton;
+
     
     public static IdleScreen Instance;
     
@@ -48,8 +49,9 @@ public class IdleScreen : CanvasScreen
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0) && IsOn())
+        if (Input.GetKeyDown(KeyCode.Alpha0) && IsOn() && )
         {
+            Debug.Log("Teste");
             StartGame();
         }
     }
