@@ -11,6 +11,7 @@ public class IdleScreen : CanvasScreen
 
     
     public static IdleScreen Instance;
+    private bool canProcessInput = false;
     
     void Awake()
     {
@@ -49,15 +50,29 @@ public class IdleScreen : CanvasScreen
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0) && IsOn() && )
+        if (Input.GetKeyDown(KeyCode.Alpha0) && IsOn() && canProcessInput)
         {
             Debug.Log("Teste");
             StartGame();
         }
     }
+    
     public override void TurnOn()
     {
         base.TurnOn();
-        // Reset any animations or effects when screen becomes active
+        // Add delay to prevent immediate input processing when returning from other screens
+        Invoke(nameof(EnableInputProcessing), 0.2f);
+    }
+    
+    public override void TurnOff()
+    {
+        base.TurnOff();
+        canProcessInput = false;
+        CancelInvoke(nameof(EnableInputProcessing));
+    }
+    
+    private void EnableInputProcessing()
+    {
+        canProcessInput = true;
     }
 }
