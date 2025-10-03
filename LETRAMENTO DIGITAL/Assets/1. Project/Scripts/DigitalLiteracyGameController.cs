@@ -242,4 +242,14 @@ public class DigitalLiteracyGameController : MonoBehaviour
         }
         return null;
     }
+    
+    public int GetCurrentQuestionIndex()
+    {
+        return currentQuestionIndex;
+    }
+    
+    public int GetTotalQuestions()
+    {
+        return selectedQuestions?.Count ?? 0;
+    }
 }

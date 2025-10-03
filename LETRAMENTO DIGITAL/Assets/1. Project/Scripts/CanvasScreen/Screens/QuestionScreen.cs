@@ -12,6 +12,7 @@ public class QuestionScreen : CanvasScreen
     [SerializeField] private Button[] alternativeButtons;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private Image timerFill;
+    [SerializeField] private TextMeshProUGUI questionCounterText;
     
     public static QuestionScreen Instance;
     private Question currentQuestion;
@@ -49,7 +50,14 @@ public class QuestionScreen : CanvasScreen
         if (questionText != null && currentQuestion != null)
         {
             questionText.text = currentQuestion.questionText;
+        }
 
+        // Update question counter
+        if (questionCounterText != null && DigitalLiteracyGameController.Instance != null)
+        {
+            int currentIndex = DigitalLiteracyGameController.Instance.GetCurrentQuestionIndex() + 1;
+            int totalQuestions = DigitalLiteracyGameController.Instance.GetTotalQuestions();
+            questionCounterText.text = $"{currentIndex}/{totalQuestions}";
         }
 
         for (int i = 0; i < alternativeTexts.Length && i < currentQuestion.alternatives.Count; i++)
