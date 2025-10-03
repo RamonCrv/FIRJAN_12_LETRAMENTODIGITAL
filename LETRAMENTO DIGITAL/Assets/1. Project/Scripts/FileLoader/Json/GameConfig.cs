@@ -17,6 +17,8 @@ namespace RealGames
     {
         public string correct;
         public string incorrect;
+        public string correctEn;
+        public string incorrectEn;
     }
 
     [System.Serializable]
@@ -24,7 +26,9 @@ namespace RealGames
     {
         public int id;
         public string questionText;
+        public string questionTextEn;
         public List<string> alternatives;
+        public List<string> alternativesEn;
         public int correctAnswer;
         public QuestionFeedback feedback;
     }

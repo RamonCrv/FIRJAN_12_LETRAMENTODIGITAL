@@ -52,15 +52,34 @@ public class FeedbackScreen : CanvasScreen
     
     void DisplayFeedback(bool isCorrect, Question question)
     {
+        GameLanguage currentLang = DigitalLiteracyGameController.Instance.GetCurrentLanguage();
+        
         if (resultText != null)
         {
-            resultText.text = isCorrect ? "CORRETO!" : "INCORRETO!";
+            if (currentLang == GameLanguage.English)
+            {
+                resultText.text = isCorrect ? "CORRECT!" : "INCORRECT!";
+            }
+            else
+            {
+                resultText.text = isCorrect ? "CORRETO!" : "INCORRETO!";
+            }
             resultText.color = isCorrect ? correctColor : incorrectColor;
         }
         
         if (feedbackText != null)
         {
-            feedbackText.text = isCorrect ? question.feedback.correct : question.feedback.incorrect;
+            if (currentLang == GameLanguage.English)
+            {
+                string feedbackToShow = isCorrect 
+                    ? (!string.IsNullOrEmpty(question.feedback.correctEn) ? question.feedback.correctEn : question.feedback.correct)
+                    : (!string.IsNullOrEmpty(question.feedback.incorrectEn) ? question.feedback.incorrectEn : question.feedback.incorrect);
+                feedbackText.text = feedbackToShow;
+            }
+            else
+            {
+                feedbackText.text = isCorrect ? question.feedback.correct : question.feedback.incorrect;
+            }
         }
         
         if (resultIcon != null)
@@ -89,7 +108,15 @@ public class FeedbackScreen : CanvasScreen
         {
             if (timerText != null)
             {
-                timerText.text = $"Próxima pergunta em: {Mathf.Ceil(timeRemaining)}s";
+                GameLanguage currentLang = DigitalLiteracyGameController.Instance.GetCurrentLanguage();
+                if (currentLang == GameLanguage.English)
+                {
+                    timerText.text = $"Next question in: {Mathf.Ceil(timeRemaining)}s";
+                }
+                else
+                {
+                    timerText.text = $"Próxima pergunta em: {Mathf.Ceil(timeRemaining)}s";
+                }
             }
             
             if (timerFill != null)

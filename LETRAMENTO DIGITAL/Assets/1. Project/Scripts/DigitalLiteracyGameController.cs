@@ -5,6 +5,12 @@ using RealGames;
 using System.IO;
 using System.Linq;
 
+public enum GameLanguage
+{
+    Portuguese,
+    English
+}
+
 public class DigitalLiteracyGameController : MonoBehaviour
 {
     [Header("Game Settings")]
@@ -17,6 +23,9 @@ public class DigitalLiteracyGameController : MonoBehaviour
     [Header("Game State")]
     public GameState currentState = GameState.Idle;
     public int correctAnswers = 0;
+    
+    [Header("Language Settings")]
+    public GameLanguage currentLanguage = GameLanguage.Portuguese;
     
     public enum GameState
     {
@@ -127,13 +136,15 @@ public class DigitalLiteracyGameController : MonoBehaviour
     public void StartGame()
     {
         currentState = GameState.Idle;
+        currentLanguage = GameLanguage.Portuguese; // Always reset to Portuguese when returning to idle
         isWaitingForInput = true;
         ResetInactiveTimer();
         ScreenManager.SetCallScreen("IdleScreen");
     }
     
-    public void StartQuestions()
+    public void StartQuestions(GameLanguage language)
     {
+        currentLanguage = language;
         SelectRandomQuestions();
         currentQuestionIndex = 0;
         correctAnswers = 0;
@@ -252,5 +263,15 @@ public class DigitalLiteracyGameController : MonoBehaviour
     public int GetTotalQuestions()
     {
         return selectedQuestions?.Count ?? 0;
+    }
+    
+    public GameLanguage GetCurrentLanguage()
+    {
+        return currentLanguage;
+    }
+    
+    public string GetLocalizedText(string portugueseText, string englishText)
+    {
+        return currentLanguage == GameLanguage.English ? englishText : portugueseText;
     }
 }

@@ -9,141 +9,221 @@
     {
       "id": 1,
       "questionText": "O time de marketing recebeu uma notícia sobre mudanças regulatórias que impactariam o setor, mas ninguém sabe se é real. Qual ferramenta digital pode ajudar a combater desdesinformação e também ser usada para verificar informações sobre assuntos de seu interesse?",
+      "questionTextEn": "The marketing team received news about regulatory changes that would impact the sector, but no one knows if it's real. Which digital tool can help combat misinformation and also be used to verify information on topics of interest?",
       "alternatives": [
         "Antivírus corporativo (Kaspersky, Symantec, Windows Defender)",
         "Plataforma de música e podcast (Spotify)",
         "Ferramenta de edição de foto (Photoshop)"
       ],
+      "alternativesEn": [
+        "Corporate antivirus (Kaspersky, Symantec, Windows Defender)",
+        "Music and podcast platform (Spotify)",
+        "Photo editing tool (Photoshop)"
+      ],
       "correctAnswer": 1,
       "feedback": {
         "correct": "Correto! Antivírus corporativos são ferramentas essenciais para verificar a autenticidade e segurança das informações digitais.",
-        "incorrect": "Incorreto. A resposta correta é a alternativa A - Antivírus corporativo. Essas ferramentas ajudam a combater desinformação verificando a segurança das informações."
+        "incorrect": "Incorreto. A resposta correta é a alternativa A - Antivírus corporativo. Essas ferramentas ajudam a combater desinformação verificando a segurança das informações.",
+        "correctEn": "Correct! Corporate antivirus are essential tools for verifying the authenticity and security of digital information.",
+        "incorrectEn": "Incorrect. The correct answer is alternative A - Corporate antivirus. These tools help combat misinformation by verifying information security."
       }
     },
     {
       "id": 2,
       "questionText": "O time financeiro recebeu uma planilha com dados 'exclusivos de mercado'. Qual ferramenta pode identificar riscos ocultos no arquivo?",
+      "questionTextEn": "The finance team received a spreadsheet with 'exclusive market data'. Which tool can identify hidden risks in the file?",
       "alternatives": [
         "Antivírus corporativo (Kaspersky, Symantec, Windows Defender)",
         "Plataforma de música e podcast (Spotify)",
         "Ferramenta de edição de foto (Photoshop)"
       ],
+      "alternativesEn": [
+        "Corporate antivirus (Kaspersky, Symantec, Windows Defender)",
+        "Music and podcast platform (Spotify)",
+        "Photo editing tool (Photoshop)"
+      ],
       "correctAnswer": 1,
       "feedback": {
         "correct": "Correto! Antivírus corporativos podem detectar malware e riscos de segurança em arquivos suspeitos.",
-        "incorrect": "Incorreto. A resposta correta é a alternativa A - Antivírus corporativo. Essas ferramentas podem identificar riscos de segurança em arquivos."
+        "incorrect": "Incorreto. A resposta correta é a alternativa A - Antivírus corporativo. Essas ferramentas podem identificar riscos de segurança em arquivos.",
+        "correctEn": "Correct! Corporate antivirus can detect malware and security risks in suspicious files.",
+        "incorrectEn": "Incorrect. The correct answer is alternative A - Corporate antivirus. These tools can identify security risks in files."
       }
     },
     {
       "id": 3,
       "questionText": "Antes de fechar contrato, a equipe de parceiros recebeu uma foto que supostamente mostra a sede de um fornecedor. Como checar sua autenticidade?",
+      "questionTextEn": "Before closing a contract, the partners team received a photo that supposedly shows a supplier's headquarters. How to check its authenticity?",
       "alternatives": [
         "Ferramenta de busca reversa de imagens (Google Lens e TinEye Site)",
         "Ferramenta de edição (aplicativo do WhatsApp)",
         "Verificar apenas visualmente"
       ],
+      "alternativesEn": [
+        "Reverse image search tool (Google Lens and TinEye Site)",
+        "Editing tool (WhatsApp application)",
+        "Check only visually"
+      ],
       "correctAnswer": 1,
       "feedback": {
         "correct": "Correto! Ferramentas de busca reversa de imagens são ideais para verificar a autenticidade de fotos.",
-        "incorrect": "Incorreto. A resposta correta é a alternativa A - Ferramenta de busca reversa de imagens. Essas ferramentas verificam a origem e autenticidade de imagens."
+        "incorrect": "Incorreto. A resposta correta é a alternativa A - Ferramenta de busca reversa de imagens. Essas ferramentas verificam a origem e autenticidade de imagens.",
+        "correctEn": "Correct! Reverse image search tools are ideal for verifying photo authenticity.",
+        "incorrectEn": "Incorrect. The correct answer is alternative A - Reverse image search tool. These tools verify the origin and authenticity of images."
       }
     },
     {
       "id": 4,
       "questionText": "Uma notícia sobre nova legislação circulou no grupo da empresa. Onde verificar sua veracidade antes de repassar?",
+      "questionTextEn": "News about new legislation circulated in the company group. Where to verify its veracity before passing it on?",
       "alternatives": [
         "Portais oficiais do governo como Gov.br ou Diário Oficial",
         "Redes Sociais",
         "Plataforma de música e podcast (Spotify)"
       ],
+      "alternativesEn": [
+        "Official government portals like Gov.br or Official Gazette",
+        "Social Networks",
+        "Music and podcast platform (Spotify)"
+      ],
       "correctAnswer": 1,
       "feedback": {
         "correct": "Correto! Portais oficiais do governo são as fontes mais confiáveis para verificar informações sobre legislação.",
-        "incorrect": "Incorreto. A resposta correta é a alternativa A - Portais oficiais do governo. Essas são as fontes mais confiáveis para informações oficiais."
+        "incorrect": "Incorreto. A resposta correta é a alternativa A - Portais oficiais do governo. Essas são as fontes mais confiáveis para informações oficiais.",
+        "correctEn": "Correct! Official government portals are the most reliable sources for verifying information about legislation.",
+        "incorrectEn": "Incorrect. The correct answer is alternative A - Official government portals. These are the most reliable sources for official information."
       }
     },
     {
       "id": 5,
       "questionText": "Você está coordenando um projeto com prazos apertados e precisa garantir que todos saibam suas responsabilidades e entregas. Qual plataforma usar?",
+      "questionTextEn": "You are coordinating a project with tight deadlines and need to ensure everyone knows their responsibilities and deliverables. Which platform to use?",
       "alternatives": [
         "Comunicador de tarefas",
         "Plataforma de vídeos (YouTube)",
         "Tradutor online"
       ],
+      "alternativesEn": [
+        "Task communicator",
+        "Video platform (YouTube)",
+        "Online translator"
+      ],
       "correctAnswer": 1,
       "feedback": {
         "correct": "Correto! Um comunicador de tarefas é a ferramenta ideal para coordenar projetos e responsabilidades.",
-        "incorrect": "Incorreto. A resposta correta é a alternativa A - Comunicador de tarefas. Essa ferramenta é específica para gerenciamento de projetos."
+        "incorrect": "Incorreto. A resposta correta é a alternativa A - Comunicador de tarefas. Essa ferramenta é específica para gerenciamento de projetos.",
+        "correctEn": "Correct! A task communicator is the ideal tool for coordinating projects and responsibilities.",
+        "incorrectEn": "Incorrect. The correct answer is alternative A - Task communicator. This tool is specific for project management."
       }
     },
     {
       "id": 6,
       "questionText": "Uma imagem circulou em grupos corporativos mostrando que uma grave atual que afetaria fornecedores da empresa. Como verificar sua origem?",
+      "questionTextEn": "An image circulated in corporate groups showing a serious current situation that would affect company suppliers. How to verify its origin?",
       "alternatives": [
         "Busca reversa de imagens (Google Lens e TinEye)",
         "Ferramenta de comunicação digital (WhatsApp)",
         "Plataforma de vídeo (YouTube)"
       ],
+      "alternativesEn": [
+        "Reverse image search (Google Lens and TinEye)",
+        "Digital communication tool (WhatsApp)",
+        "Video platform (YouTube)"
+      ],
       "correctAnswer": 1,
       "feedback": {
         "correct": "Correto! A busca reversa de imagens é a melhor forma de verificar a origem e autenticidade de imagens.",
-        "incorrect": "Incorreto. A resposta correta é a alternativa A - busca reversa de imagens. Essa ferramenta permite verificar a origem de imagens."
+        "incorrect": "Incorreto. A resposta correta é a alternativa A - busca reversa de imagens. Essa ferramenta permite verificar a origem de imagens.",
+        "correctEn": "Correct! Reverse image search is the best way to verify the origin and authenticity of images.",
+        "incorrectEn": "Incorrect. The correct answer is alternative A - reverse image search. This tool allows you to verify the origin of images."
       }
     },
     {
       "id": 7,
       "questionText": "O setor de comunicação quer acompanhar o que está sendo comentado sobre a empresa. Qual plataforma usar?",
+      "questionTextEn": "The communication department wants to monitor what is being said about the company. Which platform to use?",
       "alternatives": [
         "Rede social",
         "Buscador (Google)",
         "Intranet da empresa"
       ],
+      "alternativesEn": [
+        "Social network",
+        "Search engine (Google)",
+        "Company intranet"
+      ],
       "correctAnswer": 1,
       "feedback": {
         "correct": "Correto! Redes sociais são a principal plataforma para acompanhar comentários e menções sobre a empresa.",
-        "incorrect": "Incorreto. A resposta correta é a alternativa A - Rede social. Essas plataformas são onde acontecem as principais discussões públicas."
+        "incorrect": "Incorreto. A resposta correta é a alternativa A - Rede social. Essas plataformas são onde acontecem as principais discussões públicas.",
+        "correctEn": "Correct! Social networks are the main platform for monitoring comments and mentions about the company.",
+        "incorrectEn": "Incorrect. The correct answer is alternative A - Social network. These platforms are where the main public discussions take place."
       }
     },
     {
       "id": 8,
       "questionText": "Você recebeu um pen drive de um fornecedor e quer garantir que os arquivos não comprometem o sistema da empresa. Qual plataforma usar?",
+      "questionTextEn": "You received a USB drive from a supplier and want to ensure that the files do not compromise the company's system. Which platform to use?",
       "alternatives": [
         "Antivírus corporativo",
         "Rede social",
         "Gerenciador de tarefas"
       ],
+      "alternativesEn": [
+        "Corporate antivirus",
+        "Social network",
+        "Task manager"
+      ],
       "correctAnswer": 1,
       "feedback": {
         "correct": "Correto! Antivírus corporativo é essencial para verificar a segurança de arquivos externos.",
-        "incorrect": "Incorreto. A resposta correta é a alternativa A - Antivírus corporativo. É a ferramenta apropriada para verificar segurança de arquivos."
+        "incorrect": "Incorreto. A resposta correta é a alternativa A - Antivírus corporativo. É a ferramenta apropriada para verificar segurança de arquivos.",
+        "correctEn": "Correct! Corporate antivirus is essential for verifying the security of external files.",
+        "incorrectEn": "Incorrect. The correct answer is alternative A - Corporate antivirus. It's the appropriate tool for verifying file security."
       }
     },
     {
       "id": 9,
       "questionText": "Sua equipe está trabalhando em um projeto com prazos apertados e precisa colaborar em tempo real, mesmo estando em cidades diferentes de uma plataforma mais adequada?",
+      "questionTextEn": "Your team is working on a project with tight deadlines and needs to collaborate in real time, even while being in different cities. What is the most suitable platform?",
       "alternatives": [
         "Plataforma colaborativa em nuvem",
         "Plataforma de publicação de livros",
         "Plataforma de tradução automática"
       ],
+      "alternativesEn": [
+        "Cloud collaborative platform",
+        "Book publishing platform",
+        "Automatic translation platform"
+      ],
       "correctAnswer": 1,
       "feedback": {
         "correct": "Correto! Plataformas colaborativas em nuvem permitem trabalho em equipe em tempo real independente da localização.",
-        "incorrect": "Incorreto. A resposta correta é a alternativa A - Plataforma colaborativa em nuvem. Essa ferramenta é ideal para colaboração remota."
+        "incorrect": "Incorreto. A resposta correta é a alternativa A - Plataforma colaborativa em nuvem. Essa ferramenta é ideal para colaboração remota.",
+        "correctEn": "Correct! Cloud collaborative platforms allow real-time teamwork regardless of location.",
+        "incorrectEn": "Incorrect. The correct answer is alternative A - Cloud collaborative platform. This tool is ideal for remote collaboration."
       }
     },
     {
       "id": 10,
       "questionText": "O setor financeiro precisa organizar as datas de pagamento de fornecedores e garantir alertas automáticos. Qual ferramenta digital pode ajudar?",
+      "questionTextEn": "The finance department needs to organize supplier payment dates and ensure automatic alerts. Which digital tool can help?",
       "alternatives": [
         "Comunicador de tarefas",
         "Plataforma de edição de foto (Photoshop)",
         "Ferramenta de comunicação digital (WhatsApp)"
       ],
+      "alternativesEn": [
+        "Task communicator",
+        "Photo editing platform (Photoshop)",
+        "Digital communication tool (WhatsApp)"
+      ],
       "correctAnswer": 1,
       "feedback": {
         "correct": "Correto! Comunicadores de tarefas oferecem funcionalidades de organização e alertas automáticos.",
-        "incorrect": "Incorreto. A resposta correta é a alternativa A - Comunicador de tarefas. Essa ferramenta permite organizar datas e configurar alertas."
+        "incorrect": "Incorreto. A resposta correta é a alternativa A - Comunicador de tarefas. Essa ferramenta permite organizar datas e configurar alertas.",
+        "correctEn": "Correct! Task communicators offer organization features and automatic alerts.",
+        "incorrectEn": "Incorrect. The correct answer is alternative A - Task communicator. This tool allows organizing dates and setting up alerts."
       }
     }
   ]

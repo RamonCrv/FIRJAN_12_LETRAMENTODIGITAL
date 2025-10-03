@@ -64,14 +64,30 @@ public class FinalScreen : CanvasScreen
     
     void DisplayResults(int correctAnswers, int totalQuestions)
     {
+        GameLanguage currentLang = DigitalLiteracyGameController.Instance.GetCurrentLanguage();
+        
         if (titleText != null)
         {
-            titleText.text = "RESULTADO FINAL";
+            if (currentLang == GameLanguage.English)
+            {
+                titleText.text = "FINAL RESULT";
+            }
+            else
+            {
+                titleText.text = "RESULTADO FINAL";
+            }
         }
         
         if (scoreText != null)
         {
-            scoreText.text = $"{correctAnswers}/{totalQuestions} Corretas";
+            if (currentLang == GameLanguage.English)
+            {
+                scoreText.text = $"{correctAnswers}/{totalQuestions} Correct";
+            }
+            else
+            {
+                scoreText.text = $"{correctAnswers}/{totalQuestions} Corretas";
+            }
         }
         
         float percentage = (float)correctAnswers / totalQuestions * 100f;
@@ -81,25 +97,53 @@ public class FinalScreen : CanvasScreen
         
         if (percentage >= 90f)
         {
-            message = "Excelente! Você demonstra grande conhecimento em letramento digital!";
+            if (currentLang == GameLanguage.English)
+            {
+                message = "Excellent! You demonstrate great knowledge in digital literacy!";
+            }
+            else
+            {
+                message = "Excelente! Você demonstra grande conhecimento em letramento digital!";
+            }
             iconToUse = excellentIcon;
             colorToUse = excellentColor;
         }
         else if (percentage >= 70f)
         {
-            message = "Bom trabalho! Você tem um bom conhecimento sobre ferramentas digitais.";
+            if (currentLang == GameLanguage.English)
+            {
+                message = "Good job! You have good knowledge about digital tools.";
+            }
+            else
+            {
+                message = "Bom trabalho! Você tem um bom conhecimento sobre ferramentas digitais.";
+            }
             iconToUse = goodIcon;
             colorToUse = goodColor;
         }
         else if (percentage >= 50f)
         {
-            message = "Você tem conhecimento básico. Continue aprendendo sobre letramento digital!";
+            if (currentLang == GameLanguage.English)
+            {
+                message = "You have basic knowledge. Keep learning about digital literacy!";
+            }
+            else
+            {
+                message = "Você tem conhecimento básico. Continue aprendendo sobre letramento digital!";
+            }
             iconToUse = averageIcon;
             colorToUse = averageColor;
         }
         else
         {
-            message = "É importante aprender mais sobre letramento digital. Continue praticando!";
+            if (currentLang == GameLanguage.English)
+            {
+                message = "It's important to learn more about digital literacy. Keep practicing!";
+            }
+            else
+            {
+                message = "É importante aprender mais sobre letramento digital. Continue praticando!";
+            }
             iconToUse = poorIcon;
             colorToUse = poorColor;
         }
@@ -140,7 +184,15 @@ public class FinalScreen : CanvasScreen
         {
             if (timerText != null)
             {
-                timerText.text = $"Voltando ao início em: {Mathf.Ceil(timeRemaining)}s";
+                GameLanguage currentLang = DigitalLiteracyGameController.Instance.GetCurrentLanguage();
+                if (currentLang == GameLanguage.English)
+                {
+                    timerText.text = $"Returning to start in: {Mathf.Ceil(timeRemaining)}s";
+                }
+                else
+                {
+                    timerText.text = $"Voltando ao início em: {Mathf.Ceil(timeRemaining)}s";
+                }
             }
             
             if (timerFill != null)

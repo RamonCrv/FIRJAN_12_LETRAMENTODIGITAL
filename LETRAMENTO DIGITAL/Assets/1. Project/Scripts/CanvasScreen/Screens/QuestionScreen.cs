@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using RealGames;
 using System.Collections;
+using System.Collections.Generic;
 
 public class QuestionScreen : CanvasScreen
 {
@@ -49,7 +50,16 @@ public class QuestionScreen : CanvasScreen
     {
         if (questionText != null && currentQuestion != null)
         {
-            questionText.text = currentQuestion.questionText;
+            // Use localized question text
+            GameLanguage currentLang = DigitalLiteracyGameController.Instance.GetCurrentLanguage();
+            if (currentLang == GameLanguage.English && !string.IsNullOrEmpty(currentQuestion.questionTextEn))
+            {
+                questionText.text = currentQuestion.questionTextEn;
+            }
+            else
+            {
+                questionText.text = currentQuestion.questionText;
+            }
         }
 
         // Update question counter
@@ -57,25 +67,33 @@ public class QuestionScreen : CanvasScreen
         {
             int currentIndex = DigitalLiteracyGameController.Instance.GetCurrentQuestionIndex() + 1;
             int totalQuestions = DigitalLiteracyGameController.Instance.GetTotalQuestions();
+
             questionCounterText.text = $"{currentIndex}/{totalQuestions}";
+
         }
 
-        for (int i = 0; i < alternativeTexts.Length && i < currentQuestion.alternatives.Count; i++)
+        // Use localized alternatives
+        GameLanguage lang = DigitalLiteracyGameController.Instance.GetCurrentLanguage();
+        List<string> alternativesToUse = (lang == GameLanguage.English && currentQuestion.alternativesEn != null && currentQuestion.alternativesEn.Count > 0) 
+            ? currentQuestion.alternativesEn 
+            : currentQuestion.alternatives;
+
+        for (int i = 0; i < alternativeTexts.Length && i < alternativesToUse.Count; i++)
         {
             if (alternativeTexts[i] != null)
             {
-                alternativeTexts[i].text = $"{i + 1}. {currentQuestion.alternatives[i]}";
+                alternativeTexts[i].text = $"{i + 1}. {alternativesToUse[i]}";
                 alternativeTexts[i].gameObject.SetActive(true);
             }
             
-            if (alternativeButtons.Length > i  && alternativeButtons[i] != null )
+            if (alternativeButtons.Length > i && alternativeButtons[i] != null)
             {
                 alternativeButtons[i].gameObject.SetActive(true);
             }
         }
         
         // Hide unused alternatives
-        for (int i = currentQuestion.alternatives.Count; i < alternativeTexts.Length; i++)
+        for (int i = alternativesToUse.Count; i < alternativeTexts.Length; i++)
         {
             if (alternativeTexts[i] != null)
             {
@@ -123,7 +141,15 @@ public class QuestionScreen : CanvasScreen
         // Time's up
         if (timerText != null)
         {
-            timerText.text = "Tempo esgotado!";
+            GameLanguage currentLang = DigitalLiteracyGameController.Instance.GetCurrentLanguage();
+            if (currentLang == GameLanguage.English)
+            {
+                timerText.text = "Time's up!";
+            }
+            else
+            {
+                timerText.text = "Tempo esgotado!";
+            }
         }
         
         if (timerFill != null)

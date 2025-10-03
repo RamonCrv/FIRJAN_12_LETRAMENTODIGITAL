@@ -33,27 +33,34 @@ public class IdleScreen : CanvasScreen
         
         if (instructionText != null)
         {
-            instructionText.text = "Pressione 0 no teclado para começar";
+            instructionText.text = "Pressione 0 para PORTUGUÊS ou BACKSPACE para ENGLISH";
         }
         
         if (startButton != null)
         {
-            startButton.onClick.AddListener(StartGame);
+            startButton.onClick.AddListener(() => StartGame(GameLanguage.Portuguese));
         }
     }
     
-    public void StartGame()
+    public void StartGame(GameLanguage language)
     {
-        DigitalLiteracyGameController.Instance?.StartQuestions();
+        DigitalLiteracyGameController.Instance?.StartQuestions(language);
     }
 
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0) && IsOn() && canProcessInput)
+        if (!IsOn() || !canProcessInput) return;
+        
+        if (Input.GetKeyDown(KeyCode.Alpha0))
         {
-            Debug.Log("Teste");
-            StartGame();
+            Debug.Log("Starting game in Portuguese");
+            StartGame(GameLanguage.Portuguese);
+        }
+        else if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            Debug.Log("Starting game in English");
+            StartGame(GameLanguage.English);
         }
     }
     
