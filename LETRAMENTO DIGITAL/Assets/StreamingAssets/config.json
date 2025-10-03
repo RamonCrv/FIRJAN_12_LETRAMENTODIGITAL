@@ -8,7 +8,7 @@
   "questions": [
     {
       "id": 1,
-      "questionText": "O time de marketing recebeu uma notícia sobre mudanças regulatórias que impactariam o setor, mas ninguém sabe se é real. Qual ferramenta digital pode ajudar a combater desdesinformação e também ser usada para verificar informações sobre assuntos de seu interesse? certa a) Antivírus corporativo (Kaspersky, Symantec, Windows Defender) b) Plataforma de música e podcast (Spotify) c) Ferramenta de edição de foto (Photoshop)",
+      "questionText": "O time de marketing recebeu uma notícia sobre mudanças regulatórias que impactariam o setor, mas ninguém sabe se é real. Qual ferramenta digital pode ajudar a combater desdesinformação e também ser usada para verificar informações sobre assuntos de seu interesse?",
       "alternatives": [
         "Antivírus corporativo (Kaspersky, Symantec, Windows Defender)",
         "Plataforma de música e podcast (Spotify)",
@@ -22,7 +22,7 @@
     },
     {
       "id": 2,
-      "questionText": "O time financeiro recebeu uma planilha com dados 'exclusivos de mercado'. Qual ferramenta pode identificar riscos ocultos no arquivo? certa a) Antivírus corporativo (Kaspersky, Symantec, Windows Defender) b) Plataforma de música e podcast (Spotify) c) Ferramenta de edição de foto (Photoshop)",
+      "questionText": "O time financeiro recebeu uma planilha com dados 'exclusivos de mercado'. Qual ferramenta pode identificar riscos ocultos no arquivo?",
       "alternatives": [
         "Antivírus corporativo (Kaspersky, Symantec, Windows Defender)",
         "Plataforma de música e podcast (Spotify)",
@@ -36,7 +36,7 @@
     },
     {
       "id": 3,
-      "questionText": "Antes de fechar contrato, a equipe de parceiros recebeu uma foto que supostamente mostra a sede de um fornecedor. Como checar sua autenticidade? certa a) Ferramenta de busca reversa de imagens (Google Lens e TinEye Site) b) Ferramenta de edição (aplicativo do WhatsApp)",
+      "questionText": "Antes de fechar contrato, a equipe de parceiros recebeu uma foto que supostamente mostra a sede de um fornecedor. Como checar sua autenticidade?",
       "alternatives": [
         "Ferramenta de busca reversa de imagens (Google Lens e TinEye Site)",
         "Ferramenta de edição (aplicativo do WhatsApp)",
@@ -50,7 +50,7 @@
     },
     {
       "id": 4,
-      "questionText": "Uma notícia sobre nova legislação circulou no grupo da empresa. Onde verificar sua veracidade antes de repassar? certa a) Portais oficiais do governo como Gov.br ou Diário Oficial b) Redes Sociais c) Plataforma de música e podcast (Spotify)",
+      "questionText": "Uma notícia sobre nova legislação circulou no grupo da empresa. Onde verificar sua veracidade antes de repassar?",
       "alternatives": [
         "Portais oficiais do governo como Gov.br ou Diário Oficial",
         "Redes Sociais",
@@ -64,7 +64,7 @@
     },
     {
       "id": 5,
-      "questionText": "Você está coordenando um projeto com prazos apertados e precisa garantir que todos saibam suas responsabilidades e entregas. Qual plataforma usar? certa a) Comunicador de tarefas b) Plataforma de vídeos (YouTube) c) Tradutor online",
+      "questionText": "Você está coordenando um projeto com prazos apertados e precisa garantir que todos saibam suas responsabilidades e entregas. Qual plataforma usar?",
       "alternatives": [
         "Comunicador de tarefas",
         "Plataforma de vídeos (YouTube)",
@@ -78,7 +78,7 @@
     },
     {
       "id": 6,
-      "questionText": "Uma imagem circulou em grupos corporativos mostrando que uma grave atual que afetaria fornecedores da empresa. Como verificar sua origem? certa a) busca reversa de imagens (Google Lens e TinEye) b) Ferramenta de comunicação digital (WhatsApp) Plataforma de vídeo (YouTube)",
+      "questionText": "Uma imagem circulou em grupos corporativos mostrando que uma grave atual que afetaria fornecedores da empresa. Como verificar sua origem?",
       "alternatives": [
         "Busca reversa de imagens (Google Lens e TinEye)",
         "Ferramenta de comunicação digital (WhatsApp)",
@@ -92,7 +92,7 @@
     },
     {
       "id": 7,
-      "questionText": "O setor de comunicação quer acompanhar o que está sendo comentado sobre a empresa. Qual plataforma usar? certa a) Rede social b) Buscador (Google) c) Intranet da empresa",
+      "questionText": "O setor de comunicação quer acompanhar o que está sendo comentado sobre a empresa. Qual plataforma usar?",
       "alternatives": [
         "Rede social",
         "Buscador (Google)",
@@ -106,7 +106,7 @@
     },
     {
       "id": 8,
-      "questionText": "Você recebeu um pen drive de um fornecedor e quer garantir que os arquivos não comprometem o sistema da empresa. Qual plataforma usar? certa a) Antivírus corporativo b) Rede social c) Gerenciador de tarefas",
+      "questionText": "Você recebeu um pen drive de um fornecedor e quer garantir que os arquivos não comprometem o sistema da empresa. Qual plataforma usar?",
       "alternatives": [
         "Antivírus corporativo",
         "Rede social",
@@ -120,7 +120,7 @@
     },
     {
       "id": 9,
-      "questionText": "Sua equipe está trabalhando em um projeto com prazos apertados e precisa colaborar em tempo real, mesmo estando em cidades diferentes de uma plataforma mais adequada? certa a) Plataforma colaborativa em nuvem b) Plataforma de publicação de livros c) Plataforma de tradução automática",
+      "questionText": "Sua equipe está trabalhando em um projeto com prazos apertados e precisa colaborar em tempo real, mesmo estando em cidades diferentes de uma plataforma mais adequada?",
       "alternatives": [
         "Plataforma colaborativa em nuvem",
         "Plataforma de publicação de livros",
@@ -134,7 +134,7 @@
     },
     {
       "id": 10,
-      "questionText": "O setor financeiro precisa organizar as datas de pagamento de fornecedores e garantir alertas automáticos. Qual ferramenta digital pode ajudar? certa a) Comunicador de tarefas b) Plataforma de edição de foto (Photoshop) c) Ferramenta de comunicação digital (WhatsApp)",
+      "questionText": "O setor financeiro precisa organizar as datas de pagamento de fornecedores e garantir alertas automáticos. Qual ferramenta digital pode ajudar?",
       "alternatives": [
         "Comunicador de tarefas",
         "Plataforma de edição de foto (Photoshop)",
