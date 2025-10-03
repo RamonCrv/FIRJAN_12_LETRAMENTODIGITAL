@@ -1589,6 +1589,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1191939835}
   - component: {fileID: 1191939834}
+  - component: {fileID: 1191939836}
   m_Layer: 0
   m_Name: '###GAMEMANGER###'
   m_TagString: Untagged
@@ -1617,6 +1618,7 @@ MonoBehaviour:
     questions: []
   currentState: 0
   correctAnswers: 0
+  currentLanguage: 0
 --- !u!4 &1191939835
 Transform:
   m_ObjectHideFlags: 0
@@ -1632,6 +1634,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1191939836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191939833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d9da67379aff954ca5eea0ad16586ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLanguage: 28
+  localizationFileName: localization_texts.json
 --- !u!1 &1291463328
 GameObject:
   m_ObjectHideFlags: 0
@@ -2216,6 +2232,7 @@ GameObject:
   - component: {fileID: 1709500761}
   - component: {fileID: 1709500763}
   - component: {fileID: 1709500762}
+  - component: {fileID: 1709500764}
   m_Layer: 5
   m_Name: TitleStaticText (1)
   m_TagString: Untagged
@@ -2341,6 +2358,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709500760}
   m_CullTransparentMesh: 1
+--- !u!114 &1709500764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709500760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 802e2a46ddd5c3541b04991f1cbeb8a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textId: ending_Message
+  updateOnStart: 1
 --- !u!1001 &1864845041
 PrefabInstance:
   m_ObjectHideFlags: 0

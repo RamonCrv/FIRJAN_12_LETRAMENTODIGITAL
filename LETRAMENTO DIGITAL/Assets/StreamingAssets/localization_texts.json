@@ -1,0 +1,29 @@
+{
+  "texts": [
+    {
+      "id": "ending_Message",
+      "portuguese": "Obrigado por jogar!",
+      "english": "Thanks for playing!"
+    },
+    {
+      "id": "welcome_message",
+      "portuguese": "Bem-vindo ao jogo!",
+      "english": "Welcome to the game!"
+    },
+    {
+      "id": "start_button",
+      "portuguese": "Iniciar",
+      "english": "Start"
+    },
+    {
+      "id": "settings_button",
+      "portuguese": "Configurações",
+      "english": "Settings"
+    },
+    {
+      "id": "exit_button",
+      "portuguese": "Sair",
+      "english": "Exit"
+    }
+  ]
+}
