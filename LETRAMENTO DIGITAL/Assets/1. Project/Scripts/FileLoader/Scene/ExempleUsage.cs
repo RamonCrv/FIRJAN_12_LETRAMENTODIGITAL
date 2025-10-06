@@ -8,7 +8,7 @@ public class ExempleUsage : MonoBehaviour
     public AppConfig appConfig;
 
     public ImageWrapper image;
-    public AudioWrapper audio;
+    public new AudioWrapper audio;  // Using 'new' keyword to hide inherited Component.audio
     public VideoWrapper video;
 
     void Start()
@@ -21,7 +21,7 @@ public class ExempleUsage : MonoBehaviour
 
         video.LoadAndPlayVideo(false, () =>
         {
-            Debug.Log("Vídeo carregado e pronto para tocar.");
+            Debug.Log("Vï¿½deo carregado e pronto para tocar.");
             //video.targetVideoPlayer.Play();
         });
     }

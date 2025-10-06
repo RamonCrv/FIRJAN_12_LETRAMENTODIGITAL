@@ -8,6 +8,10 @@ public class IdleScreen : CanvasScreen
     [SerializeField] private TextMeshProUGUI titleText;
     [SerializeField] private TextMeshProUGUI instructionText;
     [SerializeField] private Button startButton;
+    
+    [Header("Input IDs")]
+    [SerializeField] private int portugueseInputId = 0;
+    [SerializeField] private int englishInputId = -1;
 
     
     public static IdleScreen Instance;
@@ -22,6 +26,38 @@ public class IdleScreen : CanvasScreen
     void Start()
     {
         SetupIdleScreen();
+        SubscribeToInputs();
+    }
+    
+    void OnDestroy()
+    {
+        UnsubscribeFromInputs();
+    }
+    
+    void SubscribeToInputs()
+    {
+        InputManager.OnInputTriggered += HandleInputTriggered;
+    }
+    
+    void UnsubscribeFromInputs()
+    {
+        InputManager.OnInputTriggered -= HandleInputTriggered;
+    }
+    
+    void HandleInputTriggered(int inputId)
+    {
+        if (!IsOn() || !canProcessInput) return;
+        
+        if (inputId == portugueseInputId)
+        {
+            Debug.Log("Starting game in Portuguese");
+            StartGame(GameLanguage.Portuguese);
+        }
+        else if (inputId == englishInputId)
+        {
+            Debug.Log("Starting game in English");
+            StartGame(GameLanguage.English);
+        }
     }
     
     void SetupIdleScreen()
@@ -50,18 +86,7 @@ public class IdleScreen : CanvasScreen
 
     private void Update()
     {
-        if (!IsOn() || !canProcessInput) return;
-        
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            Debug.Log("Starting game in Portuguese");
-            StartGame(GameLanguage.Portuguese);
-        }
-        else if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            Debug.Log("Starting game in English");
-            StartGame(GameLanguage.English);
-        }
+        // Input handling agora é feito via InputManager e eventos
     }
     
     public override void TurnOn()

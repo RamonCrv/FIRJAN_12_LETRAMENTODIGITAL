@@ -49,7 +49,7 @@ public class CanvasScreen: MonoBehaviour
         {
             data.editor_turnOn = false;
 
-            foreach (var screen in FindObjectsOfType<CanvasScreen>())
+            foreach (var screen in FindObjectsByType<CanvasScreen>(FindObjectsSortMode.None))
             {
                 if (screen != this && screen.canvasgroup != null)
                 {

@@ -28,6 +28,53 @@ public class QuestionScreen : CanvasScreen
     void Start()
     {
         SetupButtons();
+        SubscribeToInputs();
+    }
+    
+    void OnDestroy()
+    {
+        UnsubscribeFromInputs();
+    }
+    
+    void SubscribeToInputs()
+    {
+        InputManager.OnInputTriggered += HandleInputTriggered;
+    }
+    
+    void UnsubscribeFromInputs()
+    {
+        InputManager.OnInputTriggered -= HandleInputTriggered;
+    }
+    
+    void HandleInputTriggered(int inputId)
+    {
+        if (!IsOn()) return;
+        
+        // Check if this input should be handled globally (reset functionality)
+        if (ShouldInputBeHandledGlobally(inputId)) return;
+        
+        // InputId corresponde diretamente ao índice da resposta para números 0-9
+        if (inputId >= 0 && inputId <= 9)
+        {
+            SubmitAnswer(inputId);
+        }
+    }
+    
+    private bool ShouldInputBeHandledGlobally(int inputId)
+    {
+        // Let global reset inputs be handled by InputManager instead of local screen
+        if (InputManager.Instance != null && InputManager.Instance.IsGlobalResetEnabled())
+        {
+            int[] resetIds = InputManager.Instance.GetResetInputIds();
+            foreach (int resetId in resetIds)
+            {
+                if (inputId == resetId)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     
     void SetupButtons()
@@ -185,51 +232,6 @@ public class QuestionScreen : CanvasScreen
 
     private void Update()
     {
-        int answerIndex = -1;
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            answerIndex = 1;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            answerIndex = 2;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            answerIndex = 3;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            answerIndex = 4;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            answerIndex = 5;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            answerIndex = 6;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-            answerIndex = 7;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha8))
-        {
-            answerIndex = 8;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            answerIndex = 9;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            answerIndex = 0;
-        }
-
-        if (answerIndex > -1)
-        {
-            SubmitAnswer(answerIndex);
-        }
+        // Input handling agora é feito via InputManager e eventos
     }
 }

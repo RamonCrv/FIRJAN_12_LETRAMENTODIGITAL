@@ -34,6 +34,50 @@ public class FeedbackScreen : CanvasScreen
     void Start()
     {
         SetupButton();
+        SubscribeToInputs();
+    }
+    
+    void OnDestroy()
+    {
+        UnsubscribeFromInputs();
+    }
+    
+    void SubscribeToInputs()
+    {
+        InputManager.OnInputTriggered += HandleInputTriggered;
+    }
+    
+    void UnsubscribeFromInputs()
+    {
+        InputManager.OnInputTriggered -= HandleInputTriggered;
+    }
+    
+    void HandleInputTriggered(int inputId)
+    {
+        if (!IsOn()) return;
+        
+        // Check if this input should be handled globally (reset functionality)
+        if (ShouldInputBeHandledGlobally(inputId)) return;
+        
+        // Any other input can continue to next question
+        ContinueToNext();
+    }
+    
+    private bool ShouldInputBeHandledGlobally(int inputId)
+    {
+        // Let global reset inputs be handled by InputManager instead of local screen
+        if (InputManager.Instance != null && InputManager.Instance.IsGlobalResetEnabled())
+        {
+            int[] resetIds = InputManager.Instance.GetResetInputIds();
+            foreach (int resetId in resetIds)
+            {
+                if (inputId == resetId)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     
     void SetupButton()

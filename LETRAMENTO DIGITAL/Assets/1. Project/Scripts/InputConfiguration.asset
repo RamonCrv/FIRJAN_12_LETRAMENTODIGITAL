@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 058372a1648c5d44fa5a2491c7bb24f0, type: 3}
+  m_Name: InputConfiguration
+  m_EditorClassIdentifier: 
+  inputMappings:
+  - inputId: 0
+    inputName: Number 0
+    defaultKey: 48
+    description: Used for Portuguese language selection and option 0
+  - inputId: 1
+    inputName: Number 1
+    defaultKey: 49
+    description: Used for option 1 selection
+  - inputId: 2
+    inputName: Number 2
+    defaultKey: 50
+    description: Used for option 2 selection
+  - inputId: 3
+    inputName: Number 3
+    defaultKey: 51
+    description: Used for option 3 selection
+  - inputId: 4
+    inputName: Number 4
+    defaultKey: 52
+    description: Used for option 4 selection
+  - inputId: 5
+    inputName: Number 5
+    defaultKey: 53
+    description: Used for option 5 selection
+  - inputId: 6
+    inputName: Number 6
+    defaultKey: 54
+    description: Used for option 6 selection
+  - inputId: 7
+    inputName: Number 7
+    defaultKey: 55
+    description: Used for option 7 selection
+  - inputId: 8
+    inputName: Number 8
+    defaultKey: 56
+    description: Used for option 8 selection
+  - inputId: 9
+    inputName: Number 9
+    defaultKey: 57
+    description: Used for option 9 selection
+  - inputId: -1
+    inputName: Backspace
+    defaultKey: 8
+    description: Used for English language selection and back actions

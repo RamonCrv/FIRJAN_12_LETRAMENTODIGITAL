@@ -12,7 +12,7 @@ public class LocalizationManager : MonoBehaviour
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<LocalizationManager>();
+                instance = FindFirstObjectByType<LocalizationManager>();
                 if (instance == null)
                 {
                     GameObject go = new GameObject("LocalizationManager");
@@ -147,7 +147,7 @@ public class LocalizationManager : MonoBehaviour
     {
         yield return null; // Wait one frame
         
-        LocalizedTextComponent[] localizedTexts = FindObjectsOfType<LocalizedTextComponent>();
+        LocalizedTextComponent[] localizedTexts = FindObjectsByType<LocalizedTextComponent>(FindObjectsSortMode.None);
         Debug.Log($"Found {localizedTexts.Length} LocalizedTextComponent instances to update");
         
         foreach (var localizedText in localizedTexts)
@@ -303,7 +303,7 @@ public class LocalizationManager : MonoBehaviour
         }
         
         // Notify all localized text components to update
-        LocalizedTextComponent[] localizedTexts = FindObjectsOfType<LocalizedTextComponent>();
+        LocalizedTextComponent[] localizedTexts = FindObjectsByType<LocalizedTextComponent>(FindObjectsSortMode.None);
         foreach (var localizedText in localizedTexts)
         {
             localizedText.UpdateText();
@@ -341,7 +341,7 @@ public class LocalizationManager : MonoBehaviour
     /// </summary>
     public void ForceUpdateAllTexts()
     {
-        LocalizedTextComponent[] localizedTexts = FindObjectsOfType<LocalizedTextComponent>();
+        LocalizedTextComponent[] localizedTexts = FindObjectsByType<LocalizedTextComponent>(FindObjectsSortMode.None);
         Debug.Log($"Force updating {localizedTexts.Length} LocalizedTextComponent instances");
         
         foreach (var localizedText in localizedTexts)

@@ -29,6 +29,9 @@ public class FinalScreen : CanvasScreen
     [SerializeField] private Color averageColor = Color.yellow;
     [SerializeField] private Color poorColor = Color.red;
     
+    [Header("Input IDs")]
+    [SerializeField] private int restartInputId = 0;
+    
     public static FinalScreen Instance;
     private Coroutine autoReturnCoroutine;
     
@@ -41,6 +44,52 @@ public class FinalScreen : CanvasScreen
     void Start()
     {
         SetupButtons();
+        SubscribeToInputs();
+    }
+    
+    void OnDestroy()
+    {
+        UnsubscribeFromInputs();
+    }
+    
+    void SubscribeToInputs()
+    {
+        InputManager.OnInputTriggered += HandleInputTriggered;
+    }
+    
+    void UnsubscribeFromInputs()
+    {
+        InputManager.OnInputTriggered -= HandleInputTriggered;
+    }
+    
+    void HandleInputTriggered(int inputId)
+    {
+        if (!IsOn()) return;
+        
+        // Check if this input should be handled globally (reset functionality)
+        if (ShouldInputBeHandledGlobally(inputId)) return;
+        
+        if (inputId == restartInputId)
+        {
+            RestartGame();
+        }
+    }
+    
+    private bool ShouldInputBeHandledGlobally(int inputId)
+    {
+        // Let global reset inputs be handled by InputManager instead of local screen
+        if (InputManager.Instance != null && InputManager.Instance.IsGlobalResetEnabled())
+        {
+            int[] resetIds = InputManager.Instance.GetResetInputIds();
+            foreach (int resetId in resetIds)
+            {
+                if (inputId == resetId)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     
     void SetupButtons()
@@ -245,10 +294,6 @@ public class FinalScreen : CanvasScreen
     
     void Update()
     {
-        // Check if player presses "0" to return to idle screen
-        if (Input.GetKeyDown(KeyCode.Alpha0) && IsOn())
-        {
-            RestartGame();
-        }
+        // Input handling agora é feito via InputManager e eventos
     }
 }
