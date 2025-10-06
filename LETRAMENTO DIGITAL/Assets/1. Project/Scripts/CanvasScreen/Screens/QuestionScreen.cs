@@ -53,6 +53,9 @@ public class QuestionScreen : CanvasScreen
         // Check if this input should be handled globally (reset functionality)
         if (ShouldInputBeHandledGlobally(inputId)) return;
         
+        // If popup is active, don't process other inputs here (popup will handle them)
+        if (ConfirmationPopUp.Instance != null && ConfirmationPopUp.Instance.IsActive()) return;
+        
         // InputId corresponde diretamente ao índice da resposta para números 0-9
         if (inputId >= 0 && inputId <= 9)
         {
@@ -70,6 +73,7 @@ public class QuestionScreen : CanvasScreen
             {
                 if (inputId == resetId)
                 {
+                    // Always let InputManager handle reset inputs (it will show popup if needed)
                     return true;
                 }
             }

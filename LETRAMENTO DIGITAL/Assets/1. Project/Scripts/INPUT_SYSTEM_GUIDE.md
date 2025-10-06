@@ -20,31 +20,45 @@ Este sistema centraliza o gerenciamento de inputs do projeto, permitindo que voc
 
 ### 3. Classes Adaptadas
 - `IdleScreen.cs` - Usa IDs 0 (português) e -1 (inglês)
-- `QuestionScreen.cs` - Usa IDs 0-9 para respostas + reset global
-- `FinalScreen.cs` - Usa ID 0 para reiniciar + reset global
-- `FeedbackScreen.cs` - Suporte a reset global
+- `QuestionScreen.cs` - Usa IDs 0-9 para respostas + popup de confirmação para reset
+- `FinalScreen.cs` - Usa ID 0 para reiniciar + reset direto
+- `FeedbackScreen.cs` - Suporte a popup de confirmação para reset
+- `ConfirmationPopUp.cs` - **NOVO:** Gerencia popup de confirmação de saída
 
-## 🔄 NOVO: Sistema de Reset Global
+## 🔄 Sistema de Reset Global com Confirmação
 
-### Funcionalidade
-Durante o **gameplay** (quando não estiver na tela inicial), pressionar as teclas **`0`** ou **`Backspace`** irá:
-1. Interromper imediatamente o jogo atual
-2. Voltar automaticamente para a tela inicial (IdleScreen)
-3. Resetar todo o estado do jogo
+### Funcionalidade por Tela
 
-### Configuração
+#### **Tela Inicial (IdleScreen)**
+- Inputs **`0`** e **`Backspace`** funcionam normalmente para seleção de idioma
+- Sem popup de confirmação
+
+#### **Telas de Pergunta e Feedback**
+- Pressionar **`0`** ou **`Backspace`** exibe popup de confirmação
+- **Popup mostra**: "Deseja voltar ao início?"
+- **Para confirmar**: Pressione `0` ou `1`
+- **Para cancelar**: Pressione qualquer outra tecla
+- **Resultado da confirmação**: Volta para tela inicial
+- **Resultado do cancelamento**: Continua o jogo normalmente
+
+#### **Tela Final**
+- Pressionar **`0`** ou **`Backspace`** reseta **imediatamente**
+- **Sem popup de confirmação** (reset direto)
+
+### Configuração do Popup
 ```csharp
-// Ativar/desativar reset global
-InputManager.Instance.SetGlobalResetEnabled(true);
-
-// Definir quais IDs disparam reset (padrão: 0 e -1)
-InputManager.Instance.SetResetInputIds(new int[] { 0, -1 });
+// O popup deve estar na hierarquia: /Canvas/ConfirmationPopUp
+// Componentes necessários:
+// - CanvasGroup (para controle de visibilidade)
+// - TextMeshProUGUI (para o texto de confirmação)
+// - LocalizedTextComponent (opcional, para localização)
 ```
 
-### Comportamento Inteligente
-- **Na tela inicial**: Inputs 0 e -1 funcionam normalmente (seleção de idioma)
-- **Durante o jogo**: Inputs 0 e -1 resetam para a tela inicial
-- **Automático**: Detecção inteligente do estado do jogo
+### Configuração Automática
+```csharp
+// Adicione o ConfirmationPopUpSetup ao GameObject do popup
+// Ele configurará automaticamente os componentes necessários
+```
 
 ## Mapeamento Atual
 

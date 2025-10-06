@@ -24,6 +24,12 @@
       "id": "exit_button",
       "portuguese": "Sair",
       "english": "Exit"
+    },
+    {
+      "id": "confirmation_popup",
+      "portuguese": "Tem certeza que deseja reiniciar?",
+      "english": "Are you sure you want to restart?"
     }
+
   ]
 }

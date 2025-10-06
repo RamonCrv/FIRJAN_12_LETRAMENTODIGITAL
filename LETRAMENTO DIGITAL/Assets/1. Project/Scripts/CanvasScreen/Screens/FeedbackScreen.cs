@@ -59,6 +59,9 @@ public class FeedbackScreen : CanvasScreen
         // Check if this input should be handled globally (reset functionality)
         if (ShouldInputBeHandledGlobally(inputId)) return;
         
+        // If popup is active, don't process other inputs here (popup will handle them)
+        if (ConfirmationPopUp.Instance != null && ConfirmationPopUp.Instance.IsActive()) return;
+        
         // Any other input can continue to next question
         ContinueToNext();
     }
@@ -73,6 +76,7 @@ public class FeedbackScreen : CanvasScreen
             {
                 if (inputId == resetId)
                 {
+                    // Always let InputManager handle reset inputs (it will show popup if needed)
                     return true;
                 }
             }

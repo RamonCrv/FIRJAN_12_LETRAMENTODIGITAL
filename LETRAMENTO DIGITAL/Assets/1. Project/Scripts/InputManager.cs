@@ -94,12 +94,47 @@ public class InputManager : MonoBehaviour
         
         if (shouldReset)
         {
-            // Only reset if we're not in the idle screen
-            if (IsInGameplay())
+            // Only reset if we're not in the idle screen and popup is not active
+            if (IsInGameplay() && !IsPopupActive())
             {
-                Debug.Log($"Global reset triggered by input ID: {inputId}");
-                TriggerGlobalReset();
+                var currentState = DigitalLiteracyGameController.Instance.currentState;
+                
+                // Different behavior based on game state
+                if (currentState == DigitalLiteracyGameController.GameState.Final)
+                {
+                    // Direct reset for final screen
+                    Debug.Log($"Direct reset from Final screen triggered by input ID: {inputId}");
+                    TriggerGlobalReset();
+                }
+                else if (currentState == DigitalLiteracyGameController.GameState.Question || 
+                         currentState == DigitalLiteracyGameController.GameState.Feedback)
+                {
+                    // Show confirmation popup for question and feedback screens
+                    Debug.Log($"Showing confirmation popup triggered by input ID: {inputId}");
+                    ShowExitConfirmationPopup();
+                }
             }
+        }
+    }
+    
+    private bool IsPopupActive()
+    {
+        return ConfirmationPopUp.Instance != null && ConfirmationPopUp.Instance.IsActive();
+    }
+    
+    private void ShowExitConfirmationPopup()
+    {
+        if (ConfirmationPopUp.Instance != null)
+        {
+            ConfirmationPopUp.Instance.ShowExitConfirmation(
+                onConfirmCallback: TriggerGlobalReset,
+                onCancelCallback: () => Debug.Log("Exit cancelled, continuing game")
+            );
+        }
+        else
+        {
+            Debug.LogWarning("ConfirmationPopUp instance not found, falling back to direct reset");
+            TriggerGlobalReset();
         }
     }
     
