@@ -1,6 +1,21 @@
 {
   "texts": [
     {
+      "id": "title",
+      "portuguese": "LETRAMENTO",
+      "english": "DIGITAL"
+    },
+    {
+      "id": "title2",
+      "portuguese": "DIGITAL",
+      "english": "LITERACY"
+    },
+    {
+      "id": "cta",
+      "portuguese": "Aproxime o card START para iniciar",
+      "english": "Tap the START card to begin"
+    },
+    {
       "id": "ending_Message",
       "portuguese": "Obrigado por jogar!",
       "english": "Thanks for playing!"
