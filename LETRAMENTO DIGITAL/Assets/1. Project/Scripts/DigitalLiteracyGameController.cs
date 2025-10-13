@@ -23,6 +23,7 @@ public class DigitalLiteracyGameController : MonoBehaviour
     [Header("Game State")]
     public GameState currentState = GameState.Idle;
     public int correctAnswers = 0;
+    public PlayerScore playerScore; // Pontuação para integração NFC
     
     [Header("Language Settings")]
     public GameLanguage currentLanguage = GameLanguage.Portuguese;
@@ -235,14 +236,55 @@ public class DigitalLiteracyGameController : MonoBehaviour
     void ShowFinalScreen()
     {
         currentState = GameState.Final;
+        
+        // Calcular pontuação final para NFC
+        CalculateFinalPlayerScore();
+        
         FinalScreen.Instance?.SetResults(correctAnswers, selectedQuestions.Count);
         ScreenManager.SetCallScreen("FinalScreen");
         ResetInactiveTimer();
     }
     
+    void CalculateFinalPlayerScore()
+    {
+        // Calcular pontuações baseadas no desempenho
+        float percentage = selectedQuestions.Count > 0 ? (float)correctAnswers / selectedQuestions.Count : 0f;
+        
+        int digitalLiteracy, analyticalThinking, curiosity;
+        
+        if (percentage >= 0.8f) // 80% ou mais - Alto desempenho
+        {
+            digitalLiteracy = 8;
+            analyticalThinking = 7;
+            curiosity = 6;
+        }
+        else if (percentage >= 0.5f) // 50% a 79% - Médio desempenho
+        {
+            digitalLiteracy = 6;
+            analyticalThinking = 5;
+            curiosity = 4;
+        }
+        else // Menos de 50% - Baixo desempenho
+        {
+            digitalLiteracy = 4;
+            analyticalThinking = 3;
+            curiosity = 2;
+        }
+        
+        playerScore = new PlayerScore(digitalLiteracy, analyticalThinking, curiosity);
+        Debug.Log($"[DigitalLiteracy] Pontuação calculada: {playerScore}");
+    }
+    
     public void ReturnToIdle()
     {
         StopAllCoroutines();
+        
+        // Resetar sistema NFC
+        if (NFCGameManager.Instance != null)
+        {
+            NFCGameManager.Instance.ResetForNewGame();
+        }
+        
         StartGame();
     }
     

@@ -13,6 +13,13 @@ namespace RealGames
     }
 
     [System.Serializable]
+    public class ServerConfiguration
+    {
+        public string ip = "192.168.0.185";
+        public int port = 8080;
+    }
+
+    [System.Serializable]
     public class QuestionFeedback
     {
         public string correct;
@@ -37,6 +44,7 @@ namespace RealGames
     public class GameConfig
     {
         public TimeoutSettings timeoutSettings;
+        public ServerConfiguration server;
         public List<Question> questions;
     }
 }

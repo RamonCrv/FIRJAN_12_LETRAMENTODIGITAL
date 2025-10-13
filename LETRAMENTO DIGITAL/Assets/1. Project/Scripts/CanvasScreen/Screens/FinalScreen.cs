@@ -17,6 +17,12 @@ public class FinalScreen : CanvasScreen
     [SerializeField] private Image timerFill;
     [SerializeField] private Button manualResetButton;
     
+    [Header("NFC Integration")]
+    [SerializeField] private GameObject nfcPanel;
+    [SerializeField] private TextMeshProUGUI nfcStatusText;
+    [SerializeField] private TextMeshProUGUI nfcInstructionText;
+    [SerializeField] private float nfcActivationDelay = 3f;
+    
     [Header("Score Icons")]
     [SerializeField] private Sprite excellentIcon;
     [SerializeField] private Sprite goodIcon;
@@ -109,6 +115,9 @@ public class FinalScreen : CanvasScreen
     {
         DisplayResults(correctAnswers, totalQuestions);
         StartAutoReturnTimer();
+        
+        // Iniciar sistema NFC após delay
+        StartCoroutine(ActivateNFCAfterDelay());
     }
     
     void DisplayResults(int correctAnswers, int totalQuestions)
@@ -257,6 +266,40 @@ public class FinalScreen : CanvasScreen
         RestartGame();
     }
     
+    IEnumerator ActivateNFCAfterDelay()
+    {
+        yield return new WaitForSeconds(nfcActivationDelay);
+        
+        if (NFCGameManager.Instance != null)
+        {
+            // Configurar referências UI para o NFCGameManager
+            SetupNFCReferences();
+            
+            // Iniciar sessão NFC
+            NFCGameManager.Instance.StartNFCSession();
+            Debug.Log("[FinalScreen] Sistema NFC ativado automaticamente");
+        }
+        else
+        {
+            Debug.LogWarning("[FinalScreen] NFCGameManager não encontrado");
+        }
+    }
+    
+    void SetupNFCReferences()
+    {
+        var nfcManager = NFCGameManager.Instance;
+        
+        // Configurar referências UI apenas se não estiverem configuradas
+        if (nfcPanel != null && nfcManager.nfcPanel == null)
+            nfcManager.nfcPanel = nfcPanel;
+            
+        if (nfcStatusText != null && nfcManager.nfcStatusText == null)
+            nfcManager.nfcStatusText = nfcStatusText;
+            
+        if (nfcInstructionText != null && nfcManager.nfcInstructionText == null)
+            nfcManager.nfcInstructionText = nfcInstructionText;
+    }
+    
     public void RestartGame()
     {
         if (autoReturnCoroutine != null)
@@ -289,6 +332,12 @@ public class FinalScreen : CanvasScreen
         if (autoReturnCoroutine != null)
         {
             StopCoroutine(autoReturnCoroutine);
+        }
+        
+        // Parar sistema NFC se estiver ativo
+        if (NFCGameManager.Instance != null && NFCGameManager.Instance.IsWaitingForNFC)
+        {
+            NFCGameManager.Instance.StopWaitingForNFC();
         }
     }
     
