@@ -62,8 +62,11 @@ public class FeedbackScreen : CanvasScreen
         // If popup is active, don't process other inputs here (popup will handle them)
         if (ConfirmationPopUp.Instance != null && ConfirmationPopUp.Instance.IsActive()) return;
         
-        // Any other input can continue to next question
-        ContinueToNext();
+        // Only allow Letter A (inputId 0) and Letter Z (inputId 25) to continue
+        if (inputId == 0 || inputId == 25)
+        {
+            ContinueToNext();
+        }
     }
     
     private bool ShouldInputBeHandledGlobally(int inputId)
@@ -159,11 +162,11 @@ public class FeedbackScreen : CanvasScreen
                 GameLanguage currentLang = DigitalLiteracyGameController.Instance.GetCurrentLanguage();
                 if (currentLang == GameLanguage.English)
                 {
-                    timerText.text = $"Next question in: {Mathf.Ceil(timeRemaining)}s";
+                    timerText.text = $"Next question in: {Mathf.Ceil(timeRemaining)}s (Press A or Z to continue)";
                 }
                 else
                 {
-                    timerText.text = $"Próxima pergunta em: {Mathf.Ceil(timeRemaining)}s";
+                    timerText.text = $"Próxima pergunta em: {Mathf.Ceil(timeRemaining)}s (Pressione A ou Z para continuar)";
                 }
             }
             
