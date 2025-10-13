@@ -21,17 +21,32 @@ public class InputConfiguration : ScriptableObject
     [Header("Input Mappings")]
     public List<InputMapping> inputMappings = new List<InputMapping>
     {
-        new InputMapping { inputId = 0, inputName = "Number 0", defaultKey = KeyCode.Alpha0, description = "Used for Portuguese language selection and option 0" },
-        new InputMapping { inputId = 1, inputName = "Number 1", defaultKey = KeyCode.Alpha1, description = "Used for option 1 selection" },
-        new InputMapping { inputId = 2, inputName = "Number 2", defaultKey = KeyCode.Alpha2, description = "Used for option 2 selection" },
-        new InputMapping { inputId = 3, inputName = "Number 3", defaultKey = KeyCode.Alpha3, description = "Used for option 3 selection" },
-        new InputMapping { inputId = 4, inputName = "Number 4", defaultKey = KeyCode.Alpha4, description = "Used for option 4 selection" },
-        new InputMapping { inputId = 5, inputName = "Number 5", defaultKey = KeyCode.Alpha5, description = "Used for option 5 selection" },
-        new InputMapping { inputId = 6, inputName = "Number 6", defaultKey = KeyCode.Alpha6, description = "Used for option 6 selection" },
-        new InputMapping { inputId = 7, inputName = "Number 7", defaultKey = KeyCode.Alpha7, description = "Used for option 7 selection" },
-        new InputMapping { inputId = 8, inputName = "Number 8", defaultKey = KeyCode.Alpha8, description = "Used for option 8 selection" },
-        new InputMapping { inputId = 9, inputName = "Number 9", defaultKey = KeyCode.Alpha9, description = "Used for option 9 selection" },
-        new InputMapping { inputId = -1, inputName = "Backspace", defaultKey = KeyCode.Backspace, description = "Used for English language selection and back actions" }
+        new InputMapping { inputId = 0, inputName = "Letter A", defaultKey = KeyCode.A, description = "Letter A input" },
+        new InputMapping { inputId = 1, inputName = "Letter B", defaultKey = KeyCode.B, description = "Letter B input" },
+        new InputMapping { inputId = 2, inputName = "Letter C", defaultKey = KeyCode.C, description = "Letter C input" },
+        new InputMapping { inputId = 3, inputName = "Letter D", defaultKey = KeyCode.D, description = "Letter D input" },
+        new InputMapping { inputId = 4, inputName = "Letter E", defaultKey = KeyCode.E, description = "Letter E input" },
+        new InputMapping { inputId = 5, inputName = "Letter F", defaultKey = KeyCode.F, description = "Letter F input" },
+        new InputMapping { inputId = 6, inputName = "Letter G", defaultKey = KeyCode.G, description = "Letter G input" },
+        new InputMapping { inputId = 7, inputName = "Letter H", defaultKey = KeyCode.H, description = "Letter H input" },
+        new InputMapping { inputId = 8, inputName = "Letter I", defaultKey = KeyCode.I, description = "Letter I input" },
+        new InputMapping { inputId = 9, inputName = "Letter J", defaultKey = KeyCode.J, description = "Letter J input" },
+        new InputMapping { inputId = 10, inputName = "Letter K", defaultKey = KeyCode.K, description = "Letter K input" },
+        new InputMapping { inputId = 11, inputName = "Letter L", defaultKey = KeyCode.L, description = "Letter L input" },
+        new InputMapping { inputId = 12, inputName = "Letter M", defaultKey = KeyCode.M, description = "Letter M input" },
+        new InputMapping { inputId = 13, inputName = "Letter N", defaultKey = KeyCode.N, description = "Letter N input" },
+        new InputMapping { inputId = 14, inputName = "Letter O", defaultKey = KeyCode.O, description = "Letter O input" },
+        new InputMapping { inputId = 15, inputName = "Letter P", defaultKey = KeyCode.P, description = "Letter P input" },
+        new InputMapping { inputId = 16, inputName = "Letter Q", defaultKey = KeyCode.Q, description = "Letter Q input" },
+        new InputMapping { inputId = 17, inputName = "Letter R", defaultKey = KeyCode.R, description = "Letter R input" },
+        new InputMapping { inputId = 18, inputName = "Letter S", defaultKey = KeyCode.S, description = "Letter S input" },
+        new InputMapping { inputId = 19, inputName = "Letter T", defaultKey = KeyCode.T, description = "Letter T input" },
+        new InputMapping { inputId = 20, inputName = "Letter U", defaultKey = KeyCode.U, description = "Letter U input" },
+        new InputMapping { inputId = 21, inputName = "Letter V", defaultKey = KeyCode.V, description = "Letter V input" },
+        new InputMapping { inputId = 22, inputName = "Letter W", defaultKey = KeyCode.W, description = "Letter W input" },
+        new InputMapping { inputId = 23, inputName = "Letter X", defaultKey = KeyCode.X, description = "Letter X input" },
+        new InputMapping { inputId = 24, inputName = "Letter Y", defaultKey = KeyCode.Y, description = "Letter Y input" },
+        new InputMapping { inputId = 25, inputName = "Letter Z", defaultKey = KeyCode.Z, description = "Letter Z input" }
     };
     
     public Dictionary<int, KeyCode> GetMappingsDictionary()

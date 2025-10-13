@@ -45,20 +45,41 @@ public class InputManager : MonoBehaviour
     
     private void InitializeDefaultMappings()
     {
-        // Mapear números 0-9 para os IDs correspondentes
-        inputMappings[0] = KeyCode.Alpha0;
-        inputMappings[1] = KeyCode.Alpha1;
-        inputMappings[2] = KeyCode.Alpha2;
-        inputMappings[3] = KeyCode.Alpha3;
-        inputMappings[4] = KeyCode.Alpha4;
-        inputMappings[5] = KeyCode.Alpha5;
-        inputMappings[6] = KeyCode.Alpha6;
-        inputMappings[7] = KeyCode.Alpha7;
-        inputMappings[8] = KeyCode.Alpha8;
-        inputMappings[9] = KeyCode.Alpha9;
-        
-        // Backspace como ID -1
-        inputMappings[-1] = KeyCode.Backspace;
+        // Primeiro carregar mapeamentos do InputConfiguration se disponível
+        if (inputConfig != null)
+        {
+            var configMappings = inputConfig.GetMappingsDictionary();
+            foreach (var mapping in configMappings)
+            {
+                inputMappings[mapping.Key] = mapping.Value;
+            }
+            Debug.Log($"Loaded {configMappings.Count} input mappings from InputConfiguration");
+            
+            // Adicionar backspace para ID -1 se não estiver configurado
+            if (!inputMappings.ContainsKey(-1))
+            {
+                inputMappings[-1] = KeyCode.Backspace;
+            }
+        }
+        else
+        {
+            // Fallback para mapeamentos padrão (números) se não houver InputConfiguration
+            inputMappings[0] = KeyCode.Alpha0;
+            inputMappings[1] = KeyCode.Alpha1;
+            inputMappings[2] = KeyCode.Alpha2;
+            inputMappings[3] = KeyCode.Alpha3;
+            inputMappings[4] = KeyCode.Alpha4;
+            inputMappings[5] = KeyCode.Alpha5;
+            inputMappings[6] = KeyCode.Alpha6;
+            inputMappings[7] = KeyCode.Alpha7;
+            inputMappings[8] = KeyCode.Alpha8;
+            inputMappings[9] = KeyCode.Alpha9;
+            
+            // Backspace como ID -1
+            inputMappings[-1] = KeyCode.Backspace;
+            
+            Debug.LogWarning("InputConfiguration not assigned, using default number mappings");
+        }
     }
     
     private void Update()
@@ -234,5 +255,23 @@ public class InputManager : MonoBehaviour
     public int[] GetResetInputIds()
     {
         return resetInputIds;
+    }
+    
+    /// <summary>
+    /// Recarrega os mapeamentos de input do InputConfiguration asset
+    /// </summary>
+    public void ReloadInputConfiguration()
+    {
+        inputMappings.Clear();
+        InitializeDefaultMappings();
+    }
+    
+    /// <summary>
+    /// Define uma nova configuração de input e recarrega os mapeamentos
+    /// </summary>
+    public void SetInputConfiguration(InputConfiguration newInputConfig)
+    {
+        inputConfig = newInputConfig;
+        ReloadInputConfiguration();
     }
 }

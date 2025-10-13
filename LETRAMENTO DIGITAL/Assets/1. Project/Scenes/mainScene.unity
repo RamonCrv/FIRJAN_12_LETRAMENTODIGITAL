@@ -2183,7 +2183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6759449e1f9e0a946b563bd7ed3035aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputConfig: {fileID: 11400000, guid: be11cf337a5c62f408a83c8ecaf92710, type: 2}
+  inputConfig: {fileID: 11400000, guid: 4147a397485fc614e9910bc2673bddb4, type: 2}
   enableGlobalReset: 1
   resetInputIds: 00000000ffffffff
 --- !u!1 &1291463328

@@ -21,10 +21,6 @@ MonoBehaviour:
     inputName: Number 1
     defaultKey: 49
     description: Used for option 1 selection
-  - inputId: 2
-    inputName: Number 2
-    defaultKey: 50
-    description: Used for option 2 selection
   - inputId: 3
     inputName: Number 3
     defaultKey: 51
