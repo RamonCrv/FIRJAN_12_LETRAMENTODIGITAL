@@ -1825,7 +1825,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 0}
   confirmationText: {fileID: 0}
   confirmInputId: 0
-  alternateConfirmInputId: 1
+  alternateConfirmInputId: -1
 --- !u!1 &1046340216
 GameObject:
   m_ObjectHideFlags: 0

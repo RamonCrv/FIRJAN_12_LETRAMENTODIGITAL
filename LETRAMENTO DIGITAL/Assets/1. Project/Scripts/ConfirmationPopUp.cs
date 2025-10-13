@@ -11,7 +11,7 @@ public class ConfirmationPopUp : MonoBehaviour
     
     [Header("Input IDs")]
     [SerializeField] private int confirmInputId = 0;
-    [SerializeField] private int alternateConfirmInputId = 1;
+    [SerializeField] private int alternateConfirmInputId = -1; // Changed from 1 to -1 so only A and Z confirm
     
     public static ConfirmationPopUp Instance { get; private set; }
     
@@ -74,10 +74,12 @@ public class ConfirmationPopUp : MonoBehaviour
         
         if (inputId == confirmInputId || inputId == alternateConfirmInputId)
         {
+            Debug.Log($"ConfirmationPopUp: Input {inputId} is confirming popup");
             ConfirmAction();
         }
         else
         {
+            Debug.Log($"ConfirmationPopUp: Input {inputId} is cancelling popup (just closing)");
             // Any other input just cancels the popup (closes it without reset)
             CancelAction();
         }
