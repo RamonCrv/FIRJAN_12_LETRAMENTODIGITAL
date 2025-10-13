@@ -62,8 +62,8 @@ public class FeedbackScreen : CanvasScreen
         // If popup is active, don't process other inputs here (popup will handle them)
         if (ConfirmationPopUp.Instance != null && ConfirmationPopUp.Instance.IsActive()) return;
         
-        // Only allow Letter A (inputId 0) and Letter Z (inputId 25) to continue
-        if (inputId == 0 || inputId == 25)
+        // Only allow Letter A (inputId 0) and Letter Z (inputId -1) to continue
+        if (inputId == 0 || inputId == -1)
         {
             ContinueToNext();
         }

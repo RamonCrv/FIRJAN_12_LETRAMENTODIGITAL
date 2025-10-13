@@ -102,6 +102,8 @@ public class InputManager : MonoBehaviour
     {
         if (!enableGlobalReset) return;
         
+        Debug.Log($"InputManager: Checking input {inputId} for global reset");
+        
         // Check if this input should trigger a global reset
         bool shouldReset = false;
         foreach (int resetId in resetInputIds)
@@ -115,6 +117,8 @@ public class InputManager : MonoBehaviour
         
         if (shouldReset)
         {
+            Debug.Log($"InputManager: Reset input {inputId} triggered!");
+            
             // Only reset if we're not in the idle screen and popup is not active
             if (IsInGameplay() && !IsPopupActive())
             {
@@ -134,6 +138,17 @@ public class InputManager : MonoBehaviour
                     Debug.Log($"Showing confirmation popup triggered by input ID: {inputId}");
                     ShowExitConfirmationPopup();
                 }
+            }
+            // If popup is active, let it handle the reset input
+            else if (IsPopupActive())
+            {
+                Debug.Log($"Popup is active, reset input {inputId} will close popup and reset");
+                // Properly close popup and reset its state
+                if (ConfirmationPopUp.Instance != null)
+                {
+                    ConfirmationPopUp.Instance.ForceHide();
+                }
+                TriggerGlobalReset();
             }
         }
     }
