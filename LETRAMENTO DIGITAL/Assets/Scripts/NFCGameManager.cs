@@ -41,9 +41,11 @@ public class NFCGameManager : MonoBehaviour
     [Header("NFC Configuration")]
     public float nfcTimeoutSeconds = 30f;
     
+    [Header("Component References")]
+    public NFCReceiver nfcReceiver;
+    public ServerComunication serverCommunication;
+    
     // Private variables
-    private NFCReceiver nfcReceiver;
-    private ServerComunication serverCommunication;
     private bool isWaitingForNFC = false;
     private bool gameResultsSent = false;
     private string currentNFCId = "";
@@ -88,44 +90,72 @@ public class NFCGameManager : MonoBehaviour
     void InitializeNFCSystem()
     {
         // Carregar configuração do servidor
-        var config = ServerConfig.LoadFromJSON();
-        if (config?.server != null)
-        {
-            serverIP = config.server.ip;
-            serverPort = config.server.port;
-        }
+        LoadServerConfiguration();
         
         // Configurar componentes NFC
         SetupNFCComponents();
         
         Debug.Log($"[NFCGameManager] Sistema inicializado - Game ID: {gameId}");
+        Debug.Log($"[NFCGameManager] Servidor: http://{serverIP}:{serverPort}");
+    }
+    
+    void LoadServerConfiguration()
+    {
+        var config = ServerConfig.LoadFromJSON();
+        if (config?.server != null)
+        {
+            serverIP = config.server.ip;
+            serverPort = config.server.port;
+            Debug.Log($"[NFCGameManager] Configuração carregada do config.json");
+        }
+        else
+        {
+            Debug.LogWarning($"[NFCGameManager] Usando configuração padrão: {serverIP}:{serverPort}");
+        }
+        
+        // Carregar timeout se disponível
+        if (config?.timeoutSettings != null)
+        {
+            nfcTimeoutSeconds = config.timeoutSettings.generalTimeoutSeconds;
+            Debug.Log($"[NFCGameManager] Timeout NFC: {nfcTimeoutSeconds}s");
+        }
     }
     
     void SetupNFCComponents()
     {
         try
         {
-            // Configurar NFCReceiver
-            nfcReceiver = GetComponent<NFCReceiver>();
+            // Verificar se NFCReceiver está configurado (seguindo padrão Dilema do Bonde)
             if (nfcReceiver == null)
             {
-                nfcReceiver = gameObject.AddComponent<NFCReceiver>();
-                Debug.Log("[NFCGameManager] NFCReceiver adicionado ao GameObject");
+                nfcReceiver = GetComponent<NFCReceiver>();
+                if (nfcReceiver == null)
+                {
+                    nfcReceiver = gameObject.AddComponent<NFCReceiver>();
+                    Debug.Log("[NFCGameManager] NFCReceiver adicionado automaticamente");
+                }
             }
             
-            // Configurar ServerCommunication
-            serverCommunication = GetComponent<ServerComunication>();
+            // Verificar se ServerCommunication está configurado
             if (serverCommunication == null)
             {
-                serverCommunication = gameObject.AddComponent<ServerComunication>();
-                Debug.Log("[NFCGameManager] ServerComunication adicionado ao GameObject");
+                serverCommunication = GetComponent<ServerComunication>();
+                if (serverCommunication == null)
+                {
+                    serverCommunication = gameObject.AddComponent<ServerComunication>();
+                    Debug.Log("[NFCGameManager] ServerComunication adicionado automaticamente");
+                }
             }
             
-            // Configurar servidor
+            // Configurar servidor (padrão Dilema do Bonde)
             serverCommunication.Ip = serverIP;
             serverCommunication.Port = serverPort;
             
-            // Aguardar um frame para garantir que o NFCReceiver foi inicializado corretamente
+            Debug.Log($"[NFCGameManager] Componentes NFC configurados");
+            Debug.Log($"[NFCGameManager] NFCReceiver: {(nfcReceiver != null ? "OK" : "ERRO")}");
+            Debug.Log($"[NFCGameManager] ServerComunication: {(serverCommunication != null ? "OK" : "ERRO")}");
+            
+            // Aguardar um frame para garantir inicialização completa
             StartCoroutine(DelayedNFCSetup());
         }
         catch (System.Exception ex)

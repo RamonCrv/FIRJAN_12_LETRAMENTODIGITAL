@@ -2361,9 +2361,11 @@ MonoBehaviour:
   nfcPanel: {fileID: 0}
   nfcStatusText: {fileID: 606608709}
   nfcInstructionText: {fileID: 0}
-  serverIP: 192.168.0.185
+  serverIP: 192.168.0.212
   serverPort: 8080
   nfcTimeoutSeconds: 30
+  nfcReceiver: {fileID: 1848185430}
+  serverCommunication: {fileID: 1978907581}
 --- !u!114 &1191939839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3172,6 +3174,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70fbc4c106242b94fab8b822d851bafd, type: 3}
+--- !u!114 &1848185430 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8452856788087629536, guid: 70fbc4c106242b94fab8b822d851bafd, type: 3}
+  m_PrefabInstance: {fileID: 1848185429}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77226fa7156b47a180f68a0e3563942a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1864845041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3505,6 +3518,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ccf58ddc1a4ae9488eb8f1cf750b130, type: 3}
+--- !u!114 &1978907581 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9139395376421946703, guid: 4ccf58ddc1a4ae9488eb8f1cf750b130, type: 3}
+  m_PrefabInstance: {fileID: 1978907580}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 455f510067344d489a6ecdb6df7ba704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1996165217
 GameObject:
   m_ObjectHideFlags: 0
