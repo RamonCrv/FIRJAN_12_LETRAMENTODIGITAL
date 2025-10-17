@@ -119,7 +119,8 @@ public class QuestionScreen : CanvasScreen
             int currentIndex = DigitalLiteracyGameController.Instance.GetCurrentQuestionIndex() + 1;
             int totalQuestions = DigitalLiteracyGameController.Instance.GetTotalQuestions();
 
-            questionCounterText.text = $"{currentIndex}/{totalQuestions}";
+           // questionCounterText.text = $"{currentIndex}/{totalQuestions}";
+            questionCounterText.text = $"{currentIndex}";
 
         }
 
