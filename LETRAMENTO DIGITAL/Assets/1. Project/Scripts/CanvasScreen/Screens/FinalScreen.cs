@@ -22,6 +22,8 @@ public class FinalScreen : CanvasScreen
     [SerializeField] private TextMeshProUGUI nfcStatusText;
     [SerializeField] private TextMeshProUGUI nfcInstructionText;
     [SerializeField] private float nfcActivationDelay = 3f;
+    [SerializeField] private GameObject beforeNfcTextInfo;
+    [SerializeField] private GameObject afterNfcTextInfo;
     
     [Header("Score Icons")]
     [SerializeField] private Sprite excellentIcon;
@@ -116,7 +118,8 @@ public class FinalScreen : CanvasScreen
         DisplayResults(correctAnswers, totalQuestions);
         StartAutoReturnTimer();
         
-        // Iniciar sistema NFC após delay
+        ResetNFCUI();
+        
         StartCoroutine(ActivateNFCAfterDelay());
     }
     
@@ -289,7 +292,6 @@ public class FinalScreen : CanvasScreen
     {
         var nfcManager = NFCGameManager.Instance;
         
-        // Configurar referências UI apenas se não estiverem configuradas
         if (nfcPanel != null && nfcManager.nfcPanel == null)
             nfcManager.nfcPanel = nfcPanel;
             
@@ -298,6 +300,21 @@ public class FinalScreen : CanvasScreen
             
         if (nfcInstructionText != null && nfcManager.nfcInstructionText == null)
             nfcManager.nfcInstructionText = nfcInstructionText;
+            
+        if (beforeNfcTextInfo != null && nfcManager.beforeNfcTextInfo == null)
+            nfcManager.beforeNfcTextInfo = beforeNfcTextInfo;
+            
+        if (afterNfcTextInfo != null && nfcManager.afterNfcTextInfo == null)
+            nfcManager.afterNfcTextInfo = afterNfcTextInfo;
+    }
+    
+    void ResetNFCUI()
+    {
+        if (beforeNfcTextInfo != null)
+            beforeNfcTextInfo.SetActive(true);
+            
+        if (afterNfcTextInfo != null)
+            afterNfcTextInfo.SetActive(false);
     }
     
     public void RestartGame()

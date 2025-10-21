@@ -2078,6 +2078,8 @@ MonoBehaviour:
   nfcStatusText: {fileID: 0}
   nfcInstructionText: {fileID: 0}
   nfcActivationDelay: 3
+  beforeNfcTextInfo: {fileID: 1277627944}
+  afterNfcTextInfo: {fileID: 913527554}
   excellentIcon: {fileID: 0}
   goodIcon: {fileID: 0}
   averageIcon: {fileID: 0}
@@ -2842,7 +2844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &913527555
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3863,6 +3865,8 @@ MonoBehaviour:
   nfcPanel: {fileID: 0}
   nfcStatusText: {fileID: 606608709}
   nfcInstructionText: {fileID: 0}
+  beforeNfcTextInfo: {fileID: 0}
+  afterNfcTextInfo: {fileID: 0}
   serverIP: 192.168.0.212
   serverPort: 8080
   nfcTimeoutSeconds: 30

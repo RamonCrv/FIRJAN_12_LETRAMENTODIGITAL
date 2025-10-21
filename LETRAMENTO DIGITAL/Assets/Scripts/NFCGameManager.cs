@@ -33,6 +33,8 @@ public class NFCGameManager : MonoBehaviour
     public GameObject nfcPanel;
     public TMP_Text nfcStatusText;
     public TMP_Text nfcInstructionText;
+    public GameObject beforeNfcTextInfo;
+    public GameObject afterNfcTextInfo;
     
     [Header("Server Configuration")]
     public string serverIP = "192.168.0.185";
@@ -257,6 +259,21 @@ public class NFCGameManager : MonoBehaviour
         }
     }
     
+    void SwitchToAfterNFCUI()
+    {
+        if (beforeNfcTextInfo != null)
+        {
+            beforeNfcTextInfo.SetActive(false);
+            Debug.Log("[NFCGameManager] BeforeNfcTextInfo desativado");
+        }
+        
+        if (afterNfcTextInfo != null)
+        {
+            afterNfcTextInfo.SetActive(true);
+            Debug.Log("[NFCGameManager] AfterNfcTextInfo ativado");
+        }
+    }
+    
     void StartNFCTimeout()
     {
         if (nfcTimeoutCoroutine != null)
@@ -291,7 +308,8 @@ public class NFCGameManager : MonoBehaviour
         UpdateNFCStatusText("Cartão detectado! Enviando dados...");
         UpdateNFCInstructionText("Processando...");
         
-        // Enviar dados do jogo
+        SwitchToAfterNFCUI();
+        
         StartCoroutine(SendGameDataCoroutine());
     }
     
