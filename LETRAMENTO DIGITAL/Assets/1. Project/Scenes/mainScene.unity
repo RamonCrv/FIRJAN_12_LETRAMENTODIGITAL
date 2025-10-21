@@ -2107,7 +2107,7 @@ MonoBehaviour:
   nfcPanel: {fileID: 0}
   nfcStatusText: {fileID: 0}
   nfcInstructionText: {fileID: 0}
-  nfcActivationDelay: 3
+  nfcActivationDelay: 0
   beforeNfcTextInfo: {fileID: 1277627944}
   afterNfcTextInfo: {fileID: 913527554}
   excellentIcon: {fileID: 0}

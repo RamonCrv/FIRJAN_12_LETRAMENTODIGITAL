@@ -23,7 +23,7 @@
     {
       "id": "ending_Message",
       "portuguese": "você concluiu o desafio!",
-      "english": ""
+      "english": "You completed the challenge!"
     },
     {
       "id": "welcome_message",
@@ -38,12 +38,12 @@
     {
       "id": "endingDescription",
       "portuguese": "Parabéns! Você não apenas usou a tecnologia e sim pensou pensou com ela! Suas habilidades de Letramento Tecnológico, IA e Big data e Pensamento criativo foram avaliadas e creditadas no seu cartão.",
-      "english": ""
+      "english": "Congratulations! You didn't just use technology, you thought with it! Your skills in Technological Literacy, AI and Big Data, and Creative Thinking were evaluated and credited to your card."
     },
     {
       "id": "nfcRule",
       "portuguese": "Aproxime seu cartão",
-      "english": ""
+      "english": "Tap your card"
     },
     {
       "id": "confirmation_popup",
@@ -63,17 +63,17 @@
     {
       "id": "recordedData",
       "portuguese": "Seus dados foram gravados em seu perfil.",
-      "english": ""
+      "english": "Your data has been saved to your profile."
     },
     {
       "id": "questionTitle",
-      "portuguese": "Pergunta",
-      "english": "Question"
+      "portuguese": "PERGUNTA",
+      "english": "QUESTION"
     },
     {
       "id": "nfcInstruction",
       "portuguese": "Escolha um card que melhor responde á pergunta e encoste-o no espaço indicado do móvel.",
-      "english": ""
+      "english": "Choose a card that best answers the question and tap it on the designated area of the device."
     }
 
   ]
