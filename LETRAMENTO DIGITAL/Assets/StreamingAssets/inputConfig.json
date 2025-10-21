@@ -6,7 +6,7 @@
       "keyCode": "A",
       "titleEnglish": "Letter A",
       "titlePortuguese": "Letra A",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Letter A input"
     },
     {
@@ -15,7 +15,7 @@
       "keyCode": "B",
       "titleEnglish": "Corporate Antivirus",
       "titlePortuguese": "Antivírus corporativo",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Protege arquivos e sistemas contra vírus e ameaças digitais."
     },
     {
@@ -24,7 +24,7 @@
       "keyCode": "C",
       "titleEnglish": "Music and Podcast Platform",
       "titlePortuguese": "Plataforma de música e podcast",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Oferece conteúdos de áudio para informação e entretenimento."
     },
     {
@@ -33,7 +33,7 @@
       "keyCode": "D",
       "titleEnglish": "Reverse Image Search Tool",
       "titlePortuguese": "Ferramenta de busca reversa de imagens",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Verifica a origem e autenticidade de imagens na internet."
     },
     {
@@ -42,7 +42,7 @@
       "keyCode": "E",
       "titleEnglish": "Digital Communication Tool",
       "titlePortuguese": "Ferramenta de comunicação digital",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Conecta pessoas em tempo real por mensagens e chamadas."
     },
     {
@@ -51,7 +51,7 @@
       "keyCode": "F",
       "titleEnglish": "Task Manager",
       "titlePortuguese": "Gerenciador de tarefas",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Organiza prazos, atividades e prioridades de projetos."
     },
     {
@@ -60,7 +60,7 @@
       "keyCode": "G",
       "titleEnglish": "Social Network",
       "titlePortuguese": "Rede social",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Permite compartilhar conteúdos e acompanhar interações online."
     },
     {
@@ -69,7 +69,7 @@
       "keyCode": "H",
       "titleEnglish": "Automatic Translation Platform",
       "titlePortuguese": "Plataforma de tradução automática",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Traduz textos e mensagens em diferentes idiomas rapidamente."
     },
     {
@@ -78,7 +78,7 @@
       "keyCode": "I",
       "titleEnglish": "Video Platform",
       "titlePortuguese": "Plataforma de vídeo",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Reúne conteúdos audiovisuais para aprendizado e divulgação."
     },
     {
@@ -87,7 +87,7 @@
       "keyCode": "J",
       "titleEnglish": "Fact-Checking Platform",
       "titlePortuguese": "Plataforma especializada em verificação de fatos",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Checa notícias e conteúdos para confirmar se são verdadeiros."
     },
     {
@@ -96,7 +96,7 @@
       "keyCode": "K",
       "titleEnglish": "Photo Editor",
       "titlePortuguese": "Editor de fotos",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Ajusta cores, luz e enquadramento para melhorar imagens."
     },
     {
@@ -105,7 +105,7 @@
       "keyCode": "L",
       "titleEnglish": "Spreadsheets",
       "titlePortuguese": "Planilhas",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Organizam dados e permitem cálculos automáticos."
     },
     {
@@ -114,7 +114,7 @@
       "keyCode": "M",
       "titleEnglish": "Official Government Portals",
       "titlePortuguese": "Portais oficiais de governo",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Reúnem informações oficiais, leis e documentos públicos."
     },
     {
@@ -123,7 +123,7 @@
       "keyCode": "N",
       "titleEnglish": "Search Engine",
       "titlePortuguese": "Buscador",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Localiza informações, sites e conteúdos na internet."
     },
     {
@@ -132,7 +132,7 @@
       "keyCode": "O",
       "titleEnglish": "Company Intranet",
       "titlePortuguese": "Intranet da empresa",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Centraliza comunicados e informações internas da organização."
     },
     {
@@ -141,7 +141,7 @@
       "keyCode": "P",
       "titleEnglish": "Cloud Collaborative Editing Platform",
       "titlePortuguese": "Plataforma de edição colaborativa em nuvem",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Permite criar e editar documentos em tempo real com outros usuários."
     },
     {
@@ -150,7 +150,7 @@
       "keyCode": "Q",
       "titleEnglish": "Slide Presentation Platform",
       "titlePortuguese": "Plataforma de apresentação de slides",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Cria e exibe conteúdos visuais para reuniões e palestras."
     },
     {
@@ -159,7 +159,7 @@
       "keyCode": "R",
       "titleEnglish": "Letter R",
       "titlePortuguese": "Letra R",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Letter R input"
     },
     {
@@ -168,7 +168,7 @@
       "keyCode": "S",
       "titleEnglish": "Letter S",
       "titlePortuguese": "Letra S",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Letter S input"
     },
     {
@@ -177,7 +177,7 @@
       "keyCode": "T",
       "titleEnglish": "Letter T",
       "titlePortuguese": "Letra T",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Letter T input"
     },
     {
@@ -186,7 +186,7 @@
       "keyCode": "U",
       "titleEnglish": "Letter U",
       "titlePortuguese": "Letra U",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Letter U input"
     },
     {
@@ -195,7 +195,7 @@
       "keyCode": "V",
       "titleEnglish": "Letter V",
       "titlePortuguese": "Letra V",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Letter V input"
     },
     {
@@ -204,7 +204,7 @@
       "keyCode": "W",
       "titleEnglish": "Letter W",
       "titlePortuguese": "Letra W",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Letter W input"
     },
     {
@@ -213,7 +213,7 @@
       "keyCode": "X",
       "titleEnglish": "Letter X",
       "titlePortuguese": "Letra X",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Letter X input"
     },
     {
@@ -222,7 +222,7 @@
       "keyCode": "Y",
       "titleEnglish": "Letter Y",
       "titlePortuguese": "Letra Y",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Letter Y input"
     },
     {
@@ -231,7 +231,7 @@
       "keyCode": "Z",
       "titleEnglish": "Letter Z",
       "titlePortuguese": "Letra Z",
-      "iconPath": "",
+      "iconPath": "Files/iconTest.png",
       "description": "Letter Z input"
     }
   ]
