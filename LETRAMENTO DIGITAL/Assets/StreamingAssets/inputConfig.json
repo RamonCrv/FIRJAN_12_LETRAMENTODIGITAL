@@ -6,8 +6,8 @@
       "keyCode": "A",
       "titleEnglish": "Letter A",
       "titlePortuguese": "Letra A",
-      "iconPath": "Icons/input_a.png",
-      "description": "Input for letter A"
+      "iconPath": "",
+      "description": "Letter A input"
     },
     {
       "inputId": 1,
@@ -15,8 +15,8 @@
       "keyCode": "B",
       "titleEnglish": "Letter B",
       "titlePortuguese": "Letra B",
-      "iconPath": "Icons/input_b.png",
-      "description": "Input for letter B"
+      "iconPath": "",
+      "description": "Antivírus corporativo"
     },
     {
       "inputId": 2,
@@ -24,8 +24,8 @@
       "keyCode": "C",
       "titleEnglish": "Letter C",
       "titlePortuguese": "Letra C",
-      "iconPath": "Icons/input_c.png",
-      "description": "Input for letter C"
+      "iconPath": "",
+      "description": "Letter C input"
     },
     {
       "inputId": 3,
@@ -33,8 +33,206 @@
       "keyCode": "D",
       "titleEnglish": "Letter D",
       "titlePortuguese": "Letra D",
-      "iconPath": "Icons/input_d.png",
-      "description": "Input for letter D"
+      "iconPath": "",
+      "description": "Letter D input"
+    },
+    {
+      "inputId": 4,
+      "inputName": "Letter E",
+      "keyCode": "E",
+      "titleEnglish": "Letter E",
+      "titlePortuguese": "Letra E",
+      "iconPath": "",
+      "description": "Letter E input"
+    },
+    {
+      "inputId": 5,
+      "inputName": "Letter F",
+      "keyCode": "F",
+      "titleEnglish": "Letter F",
+      "titlePortuguese": "Letra F",
+      "iconPath": "",
+      "description": "Letter F input"
+    },
+    {
+      "inputId": 6,
+      "inputName": "Letter G",
+      "keyCode": "G",
+      "titleEnglish": "Letter G",
+      "titlePortuguese": "Letra G",
+      "iconPath": "",
+      "description": "Letter G input"
+    },
+    {
+      "inputId": 7,
+      "inputName": "Letter H",
+      "keyCode": "H",
+      "titleEnglish": "Letter H",
+      "titlePortuguese": "Letra H",
+      "iconPath": "",
+      "description": "Letter H input"
+    },
+    {
+      "inputId": 8,
+      "inputName": "Letter I",
+      "keyCode": "I",
+      "titleEnglish": "Letter I",
+      "titlePortuguese": "Letra I",
+      "iconPath": "",
+      "description": "Letter I input"
+    },
+    {
+      "inputId": 9,
+      "inputName": "Letter J",
+      "keyCode": "J",
+      "titleEnglish": "Letter J",
+      "titlePortuguese": "Letra J",
+      "iconPath": "",
+      "description": "Letter J input"
+    },
+    {
+      "inputId": 10,
+      "inputName": "Letter K",
+      "keyCode": "K",
+      "titleEnglish": "Letter K",
+      "titlePortuguese": "Letra K",
+      "iconPath": "",
+      "description": "Letter K input"
+    },
+    {
+      "inputId": 11,
+      "inputName": "Letter L",
+      "keyCode": "L",
+      "titleEnglish": "Letter L",
+      "titlePortuguese": "Letra L",
+      "iconPath": "",
+      "description": "Letter L input"
+    },
+    {
+      "inputId": 12,
+      "inputName": "Letter M",
+      "keyCode": "M",
+      "titleEnglish": "Letter M",
+      "titlePortuguese": "Letra M",
+      "iconPath": "",
+      "description": "Letter M input"
+    },
+    {
+      "inputId": 13,
+      "inputName": "Letter N",
+      "keyCode": "N",
+      "titleEnglish": "Letter N",
+      "titlePortuguese": "Letra N",
+      "iconPath": "",
+      "description": "Letter N input"
+    },
+    {
+      "inputId": 14,
+      "inputName": "Letter O",
+      "keyCode": "O",
+      "titleEnglish": "Letter O",
+      "titlePortuguese": "Letra O",
+      "iconPath": "",
+      "description": "Letter O input"
+    },
+    {
+      "inputId": 15,
+      "inputName": "Letter P",
+      "keyCode": "P",
+      "titleEnglish": "Letter P",
+      "titlePortuguese": "Letra P",
+      "iconPath": "",
+      "description": "Letter P input"
+    },
+    {
+      "inputId": 16,
+      "inputName": "Letter Q",
+      "keyCode": "Q",
+      "titleEnglish": "Letter Q",
+      "titlePortuguese": "Letra Q",
+      "iconPath": "",
+      "description": "Letter Q input"
+    },
+    {
+      "inputId": 17,
+      "inputName": "Letter R",
+      "keyCode": "R",
+      "titleEnglish": "Letter R",
+      "titlePortuguese": "Letra R",
+      "iconPath": "",
+      "description": "Letter R input"
+    },
+    {
+      "inputId": 18,
+      "inputName": "Letter S",
+      "keyCode": "S",
+      "titleEnglish": "Letter S",
+      "titlePortuguese": "Letra S",
+      "iconPath": "",
+      "description": "Letter S input"
+    },
+    {
+      "inputId": 19,
+      "inputName": "Letter T",
+      "keyCode": "T",
+      "titleEnglish": "Letter T",
+      "titlePortuguese": "Letra T",
+      "iconPath": "",
+      "description": "Letter T input"
+    },
+    {
+      "inputId": 20,
+      "inputName": "Letter U",
+      "keyCode": "U",
+      "titleEnglish": "Letter U",
+      "titlePortuguese": "Letra U",
+      "iconPath": "",
+      "description": "Letter U input"
+    },
+    {
+      "inputId": 21,
+      "inputName": "Letter V",
+      "keyCode": "V",
+      "titleEnglish": "Letter V",
+      "titlePortuguese": "Letra V",
+      "iconPath": "",
+      "description": "Letter V input"
+    },
+    {
+      "inputId": 22,
+      "inputName": "Letter W",
+      "keyCode": "W",
+      "titleEnglish": "Letter W",
+      "titlePortuguese": "Letra W",
+      "iconPath": "",
+      "description": "Letter W input"
+    },
+    {
+      "inputId": 23,
+      "inputName": "Letter X",
+      "keyCode": "X",
+      "titleEnglish": "Letter X",
+      "titlePortuguese": "Letra X",
+      "iconPath": "",
+      "description": "Letter X input"
+    },
+    {
+      "inputId": 24,
+      "inputName": "Letter Y",
+      "keyCode": "Y",
+      "titleEnglish": "Letter Y",
+      "titlePortuguese": "Letra Y",
+      "iconPath": "",
+      "description": "Letter Y input"
+    },
+    {
+      "inputId": -1,
+      "inputName": "Letter Z",
+      "keyCode": "Z",
+      "titleEnglish": "Letter Z",
+      "titlePortuguese": "Letra Z",
+      "iconPath": "",
+      "description": "Letter Z input"
     }
   ]
 }
