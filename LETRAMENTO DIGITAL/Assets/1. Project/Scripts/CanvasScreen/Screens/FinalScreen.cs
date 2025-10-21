@@ -30,7 +30,13 @@ public class FinalScreen : CanvasScreen
     [SerializeField] private Sprite goodIcon;
     [SerializeField] private Sprite averageIcon;
     [SerializeField] private Sprite poorIcon;
-    
+
+    [Header("Score Progress Bars")]
+    [SerializeField] private Image scoreBar1Fill;
+    [SerializeField] private Image scoreBar2Fill;
+    [SerializeField] private Image scoreBar3Fill;
+    private const float MAX_SCORE = 10f;
+
     [Header("Score Colors")]
     [SerializeField] private Color excellentColor = Color.green;
     [SerializeField] private Color goodColor = Color.blue;
@@ -117,7 +123,7 @@ public class FinalScreen : CanvasScreen
     {
         DisplayResults(correctAnswers, totalQuestions);
         StartAutoReturnTimer();
-        
+        UpdateScoreBars();
         ResetNFCUI();
         
         StartCoroutine(ActivateNFCAfterDelay());
@@ -225,7 +231,27 @@ public class FinalScreen : CanvasScreen
             scoreText.color = colorToUse;
         }
     }
-    
+
+    void UpdateScoreBars()
+    {
+        if (DigitalLiteracyGameController.Instance != null &&
+            DigitalLiteracyGameController.Instance.playerScore != null)
+        {
+            PlayerScore score = DigitalLiteracyGameController.Instance.playerScore;
+
+            if (scoreBar1Fill != null)
+                scoreBar1Fill.fillAmount = score.letramentoDigital / MAX_SCORE;
+
+            if (scoreBar2Fill != null)
+                scoreBar2Fill.fillAmount = score.pensamentoAnalitico / MAX_SCORE;
+
+            if (scoreBar3Fill != null)
+                scoreBar3Fill.fillAmount = score.curiosidade / MAX_SCORE;
+
+            Debug.Log($"[FinalScreen] Fills atualizados: {score.letramentoDigital}/10, {score.pensamentoAnalitico}/10, {score.curiosidade}/10");
+        }
+    }
+
     void StartAutoReturnTimer()
     {
         if (autoReturnCoroutine != null)

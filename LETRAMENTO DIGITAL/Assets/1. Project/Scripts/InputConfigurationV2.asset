@@ -20,7 +20,7 @@ MonoBehaviour:
   - inputId: 1
     inputName: Letter B
     defaultKey: 98
-    description: Letter B input
+    description: "Antiv\xEDrus corporativo\r"
   - inputId: 2
     inputName: Letter C
     defaultKey: 99

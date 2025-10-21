@@ -37,14 +37,16 @@ public class NFCDebugTester : MonoBehaviour
         
         if (NFCGameManager.Instance != null && NFCGameManager.Instance.IsWaitingForNFC)
         {
-            // Simular detecção de cartão
-            var nfcReceiver = NFCGameManager.Instance.GetComponent<_4._NFC_Firjan.Scripts.NFC.NFCReceiver>();
+            var nfcReceiver = NFCGameManager.Instance.nfcReceiver;
             if (nfcReceiver != null)
             {
                 nfcReceiver.OnNFCConnected.Invoke(debugCardId, "DEBUG_READER");
-                
-                // Simular remoção após 2 segundos
                 StartCoroutine(SimulateNFCRemoval());
+                Debug.Log("[NFCDebugTester] Evento OnNFCConnected invocado com sucesso");
+            }
+            else
+            {
+                Debug.LogError("[NFCDebugTester] NFCReceiver não encontrado no NFCGameManager!");
             }
         }
         else
@@ -57,11 +59,15 @@ public class NFCDebugTester : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         
-        var nfcReceiver = NFCGameManager.Instance?.GetComponent<_4._NFC_Firjan.Scripts.NFC.NFCReceiver>();
+        var nfcReceiver = NFCGameManager.Instance?.nfcReceiver;
         if (nfcReceiver != null)
         {
             nfcReceiver.OnNFCDisconnected.Invoke();
             Debug.Log("[NFCDebugTester] Simulando remoção do cartão NFC");
+        }
+        else
+        {
+            Debug.LogWarning("[NFCDebugTester] NFCReceiver não disponível para simular remoção");
         }
     }
     

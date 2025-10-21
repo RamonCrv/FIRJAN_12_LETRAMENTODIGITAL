@@ -14,20 +14,20 @@ public class NFCGameManager : MonoBehaviour
     [Header("Game Configuration")]
     public int gameId = 12; // ID único para o jogo de Letramento Digital
     
-    [Header("Score Mapping - Alto Desempenho")]
-    public int highPerformanceDigitalLiteracy = 8;
-    public int highPerformanceAnalyticalThinking = 7;
-    public int highPerformanceCuriosity = 6;
+    [Header("Score Mapping - Mais de 4 acertos")]
+    public int highPerformanceLetramentoTecnologico = 8;
+    public int highPerformanceIAEBigData = 7;
+    public int highPerformancePensamentoCriativo = 6;
     
-    [Header("Score Mapping - Médio Desempenho")]
-    public int mediumPerformanceDigitalLiteracy = 6;
-    public int mediumPerformanceAnalyticalThinking = 5;
-    public int mediumPerformanceCuriosity = 4;
+    [Header("Score Mapping - 2-3 acertos")]
+    public int mediumPerformanceLetramentoTecnologico = 7;
+    public int mediumPerformanceIAEBigData = 6;
+    public int mediumPerformancePensamentoCriativo = 5;
     
-    [Header("Score Mapping - Baixo Desempenho")]
-    public int lowPerformanceDigitalLiteracy = 4;
-    public int lowPerformanceAnalyticalThinking = 3;
-    public int lowPerformanceCuriosity = 2;
+    [Header("Score Mapping - 0-1 acerto")]
+    public int lowPerformanceLetramentoTecnologico = 6;
+    public int lowPerformanceIAEBigData = 5;
+    public int lowPerformancePensamentoCriativo = 4;
     
     [Header("UI References")]
     public GameObject nfcPanel;
@@ -379,54 +379,18 @@ public class NFCGameManager : MonoBehaviour
     
     public virtual PlayerScore GetCurrentPlayerScore()
     {
-        // Obter pontuação do DigitalLiteracyGameController
         var gameController = DigitalLiteracyGameController.Instance;
-        if (gameController != null)
+        if (gameController != null && gameController.playerScore != null)
         {
-            return CalculateScoreFromGame(gameController.correctAnswers, gameController.GetTotalQuestions());
+            Debug.Log($"[NFCGameManager] Usando pontuação calculada pelo GameController: {gameController.playerScore}");
+            return gameController.playerScore;
         }
         
-        return CreateDefaultScore();
-    }
-    
-    PlayerScore CalculateScoreFromGame(int correctAnswers, int totalQuestions)
-    {
-        if (totalQuestions == 0) return CreateDefaultScore();
-        
-        float percentage = (float)correctAnswers / totalQuestions;
-        
-        if (percentage >= 0.8f) // 80% ou mais - Alto desempenho
-        {
-            return new PlayerScore(
-                highPerformanceDigitalLiteracy,
-                highPerformanceAnalyticalThinking,
-                highPerformanceCuriosity
-            );
-        }
-        else if (percentage >= 0.5f) // 50% a 79% - Médio desempenho
-        {
-            return new PlayerScore(
-                mediumPerformanceDigitalLiteracy,
-                mediumPerformanceAnalyticalThinking,
-                mediumPerformanceCuriosity
-            );
-        }
-        else // Menos de 50% - Baixo desempenho
-        {
-            return new PlayerScore(
-                lowPerformanceDigitalLiteracy,
-                lowPerformanceAnalyticalThinking,
-                lowPerformanceCuriosity
-            );
-        }
-    }
-    
-    PlayerScore CreateDefaultScore()
-    {
+        Debug.LogWarning("[NFCGameManager] PlayerScore não encontrado, usando pontuação padrão");
         return new PlayerScore(
-            mediumPerformanceDigitalLiteracy,
-            mediumPerformanceAnalyticalThinking,
-            mediumPerformanceCuriosity
+            mediumPerformanceLetramentoTecnologico,
+            mediumPerformanceIAEBigData,
+            mediumPerformancePensamentoCriativo
         );
     }
     

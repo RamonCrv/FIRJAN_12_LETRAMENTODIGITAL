@@ -60,17 +60,17 @@ public class NFCSystemInitializer : MonoBehaviour
             nfcManager.nfcTimeoutSeconds = nfcTimeoutSeconds;
             
             // Configurar pontuações
-            nfcManager.highPerformanceDigitalLiteracy = highPerformanceScores.digitalLiteracy;
-            nfcManager.highPerformanceAnalyticalThinking = highPerformanceScores.analyticalThinking;
-            nfcManager.highPerformanceCuriosity = highPerformanceScores.curiosity;
+            nfcManager.highPerformanceLetramentoTecnologico = highPerformanceScores.digitalLiteracy;
+            nfcManager.highPerformanceIAEBigData = highPerformanceScores.analyticalThinking;
+            nfcManager.highPerformancePensamentoCriativo = highPerformanceScores.curiosity;
             
-            nfcManager.mediumPerformanceDigitalLiteracy = mediumPerformanceScores.digitalLiteracy;
-            nfcManager.mediumPerformanceAnalyticalThinking = mediumPerformanceScores.analyticalThinking;
-            nfcManager.mediumPerformanceCuriosity = mediumPerformanceScores.curiosity;
+            nfcManager.mediumPerformanceLetramentoTecnologico = mediumPerformanceScores.digitalLiteracy;
+            nfcManager.mediumPerformanceIAEBigData = mediumPerformanceScores.analyticalThinking;
+            nfcManager.mediumPerformancePensamentoCriativo = mediumPerformanceScores.curiosity;
             
-            nfcManager.lowPerformanceDigitalLiteracy = lowPerformanceScores.digitalLiteracy;
-            nfcManager.lowPerformanceAnalyticalThinking = lowPerformanceScores.analyticalThinking;
-            nfcManager.lowPerformanceCuriosity = lowPerformanceScores.curiosity;
+            nfcManager.lowPerformanceLetramentoTecnologico = lowPerformanceScores.digitalLiteracy;
+            nfcManager.lowPerformanceIAEBigData = lowPerformanceScores.analyticalThinking;
+            nfcManager.lowPerformancePensamentoCriativo = lowPerformanceScores.curiosity;
             
             Debug.Log($"[NFCSystemInitializer] NFCGameManager criado automaticamente com Game ID: {gameId}");
         }

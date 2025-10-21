@@ -249,29 +249,29 @@ public class DigitalLiteracyGameController : MonoBehaviour
     {
         // Calcular pontuações baseadas no desempenho
         float percentage = selectedQuestions.Count > 0 ? (float)correctAnswers / selectedQuestions.Count : 0f;
-        
-        int digitalLiteracy, analyticalThinking, curiosity;
-        
-        if (percentage >= 0.8f) // 80% ou mais - Alto desempenho
+
+        int letramentoTecnologico, iaEBigData, pensamentoCriativo;
+
+        if (correctAnswers >= 4)
         {
-            digitalLiteracy = 8;
-            analyticalThinking = 7;
-            curiosity = 6;
+            letramentoTecnologico = 8;
+            iaEBigData = 7;
+            pensamentoCriativo = 6;
         }
-        else if (percentage >= 0.5f) // 50% a 79% - Médio desempenho
+        else if (correctAnswers >= 2)
         {
-            digitalLiteracy = 6;
-            analyticalThinking = 5;
-            curiosity = 4;
+            letramentoTecnologico = 7;
+            iaEBigData = 6;
+            pensamentoCriativo = 5;
         }
-        else // Menos de 50% - Baixo desempenho
+        else
         {
-            digitalLiteracy = 4;
-            analyticalThinking = 3;
-            curiosity = 2;
+            letramentoTecnologico = 6;
+            iaEBigData = 5;
+            pensamentoCriativo = 4;
         }
-        
-        playerScore = new PlayerScore(digitalLiteracy, analyticalThinking, curiosity);
+
+        playerScore = new PlayerScore(letramentoTecnologico, iaEBigData, pensamentoCriativo);
         Debug.Log($"[DigitalLiteracy] Pontuação calculada: {playerScore}");
     }
     
