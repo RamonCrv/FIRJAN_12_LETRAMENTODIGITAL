@@ -45,9 +45,10 @@ public class InputManager : MonoBehaviour
     
     private void InitializeDefaultMappings()
     {
-        // Primeiro carregar mapeamentos do InputConfiguration se disponível
         if (inputConfig != null)
         {
+            inputConfig.LoadFromJSON();
+            
             var configMappings = inputConfig.GetMappingsDictionary();
             foreach (var mapping in configMappings)
             {
@@ -55,7 +56,6 @@ public class InputManager : MonoBehaviour
             }
             Debug.Log($"Loaded {configMappings.Count} input mappings from InputConfiguration");
             
-            // Adicionar backspace para ID -1 se não estiver configurado
             if (!inputMappings.ContainsKey(-1))
             {
                 inputMappings[-1] = KeyCode.Backspace;
@@ -63,7 +63,6 @@ public class InputManager : MonoBehaviour
         }
         else
         {
-            // Fallback para mapeamentos padrão (números) se não houver InputConfiguration
             inputMappings[0] = KeyCode.Alpha0;
             inputMappings[1] = KeyCode.Alpha1;
             inputMappings[2] = KeyCode.Alpha2;
@@ -74,8 +73,6 @@ public class InputManager : MonoBehaviour
             inputMappings[7] = KeyCode.Alpha7;
             inputMappings[8] = KeyCode.Alpha8;
             inputMappings[9] = KeyCode.Alpha9;
-            
-            // Backspace como ID -1
             inputMappings[-1] = KeyCode.Backspace;
             
             Debug.LogWarning("InputConfiguration not assigned, using default number mappings");
@@ -288,5 +285,32 @@ public class InputManager : MonoBehaviour
     {
         inputConfig = newInputConfig;
         ReloadInputConfiguration();
+    }
+    
+    public string GetLocalizedInputTitle(int inputId, bool useEnglish = false)
+    {
+        if (inputConfig != null)
+        {
+            return inputConfig.GetLocalizedTitle(inputId, useEnglish);
+        }
+        return $"Input {inputId}";
+    }
+    
+    public Sprite GetInputIcon(int inputId)
+    {
+        if (inputConfig != null)
+        {
+            return inputConfig.GetInputIcon(inputId);
+        }
+        return null;
+    }
+    
+    public InputConfiguration.InputMapping GetInputMappingData(int inputId)
+    {
+        if (inputConfig != null)
+        {
+            return inputConfig.GetInputMapping(inputId);
+        }
+        return null;
     }
 }

@@ -2319,7 +2319,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PENGUNTA
+  m_text: PERGUNTA
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 993e3384ed5c5af478180d0126991fbe, type: 2}
   m_sharedMaterial: {fileID: 2616132817271303017, guid: 993e3384ed5c5af478180d0126991fbe, type: 2}
@@ -2765,7 +2765,7 @@ MonoBehaviour:
   alternativeButtons: []
   timerText: {fileID: 1239654700}
   timerFill: {fileID: 677038150}
-  questionCounterText: {fileID: 0}
+  questionCounterText: {fileID: 1724746093}
 --- !u!225 &875309180
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2774,9 +2774,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875309177}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &902933205
 GameObject:
@@ -4556,9 +4556,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334839944}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &1345809162
 GameObject:

@@ -1,0 +1,40 @@
+{
+  "inputs": [
+    {
+      "inputId": 0,
+      "inputName": "Letter A",
+      "keyCode": "A",
+      "titleEnglish": "Letter A",
+      "titlePortuguese": "Letra A",
+      "iconPath": "Icons/input_a.png",
+      "description": "Input for letter A"
+    },
+    {
+      "inputId": 1,
+      "inputName": "Letter B",
+      "keyCode": "B",
+      "titleEnglish": "Letter B",
+      "titlePortuguese": "Letra B",
+      "iconPath": "Icons/input_b.png",
+      "description": "Input for letter B"
+    },
+    {
+      "inputId": 2,
+      "inputName": "Letter C",
+      "keyCode": "C",
+      "titleEnglish": "Letter C",
+      "titlePortuguese": "Letra C",
+      "iconPath": "Icons/input_c.png",
+      "description": "Input for letter C"
+    },
+    {
+      "inputId": 3,
+      "inputName": "Letter D",
+      "keyCode": "D",
+      "titleEnglish": "Letter D",
+      "titlePortuguese": "Letra D",
+      "iconPath": "Icons/input_d.png",
+      "description": "Input for letter D"
+    }
+  ]
+}
