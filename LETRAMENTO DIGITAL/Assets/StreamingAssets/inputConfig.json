@@ -11,147 +11,147 @@
     },
     {
       "inputId": 1,
-      "inputName": "Letter B",
+      "inputName": "Corporate Antivirus",
       "keyCode": "B",
-      "titleEnglish": "Letter B",
-      "titlePortuguese": "Letra B",
+      "titleEnglish": "Corporate Antivirus",
+      "titlePortuguese": "Antivírus corporativo",
       "iconPath": "",
-      "description": "Antivírus corporativo"
+      "description": "Protege arquivos e sistemas contra vírus e ameaças digitais."
     },
     {
       "inputId": 2,
-      "inputName": "Letter C",
+      "inputName": "Music and Podcast Platform",
       "keyCode": "C",
-      "titleEnglish": "Letter C",
-      "titlePortuguese": "Letra C",
+      "titleEnglish": "Music and Podcast Platform",
+      "titlePortuguese": "Plataforma de música e podcast",
       "iconPath": "",
-      "description": "Letter C input"
+      "description": "Oferece conteúdos de áudio para informação e entretenimento."
     },
     {
       "inputId": 3,
-      "inputName": "Letter D",
+      "inputName": "Reverse Image Search Tool",
       "keyCode": "D",
-      "titleEnglish": "Letter D",
-      "titlePortuguese": "Letra D",
+      "titleEnglish": "Reverse Image Search Tool",
+      "titlePortuguese": "Ferramenta de busca reversa de imagens",
       "iconPath": "",
-      "description": "Letter D input"
+      "description": "Verifica a origem e autenticidade de imagens na internet."
     },
     {
       "inputId": 4,
-      "inputName": "Letter E",
+      "inputName": "Digital Communication Tool",
       "keyCode": "E",
-      "titleEnglish": "Letter E",
-      "titlePortuguese": "Letra E",
+      "titleEnglish": "Digital Communication Tool",
+      "titlePortuguese": "Ferramenta de comunicação digital",
       "iconPath": "",
-      "description": "Letter E input"
+      "description": "Conecta pessoas em tempo real por mensagens e chamadas."
     },
     {
       "inputId": 5,
-      "inputName": "Letter F",
+      "inputName": "Task Manager",
       "keyCode": "F",
-      "titleEnglish": "Letter F",
-      "titlePortuguese": "Letra F",
+      "titleEnglish": "Task Manager",
+      "titlePortuguese": "Gerenciador de tarefas",
       "iconPath": "",
-      "description": "Letter F input"
+      "description": "Organiza prazos, atividades e prioridades de projetos."
     },
     {
       "inputId": 6,
-      "inputName": "Letter G",
+      "inputName": "Social Network",
       "keyCode": "G",
-      "titleEnglish": "Letter G",
-      "titlePortuguese": "Letra G",
+      "titleEnglish": "Social Network",
+      "titlePortuguese": "Rede social",
       "iconPath": "",
-      "description": "Letter G input"
+      "description": "Permite compartilhar conteúdos e acompanhar interações online."
     },
     {
       "inputId": 7,
-      "inputName": "Letter H",
+      "inputName": "Automatic Translation Platform",
       "keyCode": "H",
-      "titleEnglish": "Letter H",
-      "titlePortuguese": "Letra H",
+      "titleEnglish": "Automatic Translation Platform",
+      "titlePortuguese": "Plataforma de tradução automática",
       "iconPath": "",
-      "description": "Letter H input"
+      "description": "Traduz textos e mensagens em diferentes idiomas rapidamente."
     },
     {
       "inputId": 8,
-      "inputName": "Letter I",
+      "inputName": "Video Platform",
       "keyCode": "I",
-      "titleEnglish": "Letter I",
-      "titlePortuguese": "Letra I",
+      "titleEnglish": "Video Platform",
+      "titlePortuguese": "Plataforma de vídeo",
       "iconPath": "",
-      "description": "Letter I input"
+      "description": "Reúne conteúdos audiovisuais para aprendizado e divulgação."
     },
     {
       "inputId": 9,
-      "inputName": "Letter J",
+      "inputName": "Fact-Checking Platform",
       "keyCode": "J",
-      "titleEnglish": "Letter J",
-      "titlePortuguese": "Letra J",
+      "titleEnglish": "Fact-Checking Platform",
+      "titlePortuguese": "Plataforma especializada em verificação de fatos",
       "iconPath": "",
-      "description": "Letter J input"
+      "description": "Checa notícias e conteúdos para confirmar se são verdadeiros."
     },
     {
       "inputId": 10,
-      "inputName": "Letter K",
+      "inputName": "Photo Editor",
       "keyCode": "K",
-      "titleEnglish": "Letter K",
-      "titlePortuguese": "Letra K",
+      "titleEnglish": "Photo Editor",
+      "titlePortuguese": "Editor de fotos",
       "iconPath": "",
-      "description": "Letter K input"
+      "description": "Ajusta cores, luz e enquadramento para melhorar imagens."
     },
     {
       "inputId": 11,
-      "inputName": "Letter L",
+      "inputName": "Spreadsheets",
       "keyCode": "L",
-      "titleEnglish": "Letter L",
-      "titlePortuguese": "Letra L",
+      "titleEnglish": "Spreadsheets",
+      "titlePortuguese": "Planilhas",
       "iconPath": "",
-      "description": "Letter L input"
+      "description": "Organizam dados e permitem cálculos automáticos."
     },
     {
       "inputId": 12,
-      "inputName": "Letter M",
+      "inputName": "Official Government Portals",
       "keyCode": "M",
-      "titleEnglish": "Letter M",
-      "titlePortuguese": "Letra M",
+      "titleEnglish": "Official Government Portals",
+      "titlePortuguese": "Portais oficiais de governo",
       "iconPath": "",
-      "description": "Letter M input"
+      "description": "Reúnem informações oficiais, leis e documentos públicos."
     },
     {
       "inputId": 13,
-      "inputName": "Letter N",
+      "inputName": "Search Engine",
       "keyCode": "N",
-      "titleEnglish": "Letter N",
-      "titlePortuguese": "Letra N",
+      "titleEnglish": "Search Engine",
+      "titlePortuguese": "Buscador",
       "iconPath": "",
-      "description": "Letter N input"
+      "description": "Localiza informações, sites e conteúdos na internet."
     },
     {
       "inputId": 14,
-      "inputName": "Letter O",
+      "inputName": "Company Intranet",
       "keyCode": "O",
-      "titleEnglish": "Letter O",
-      "titlePortuguese": "Letra O",
+      "titleEnglish": "Company Intranet",
+      "titlePortuguese": "Intranet da empresa",
       "iconPath": "",
-      "description": "Letter O input"
+      "description": "Centraliza comunicados e informações internas da organização."
     },
     {
       "inputId": 15,
-      "inputName": "Letter P",
+      "inputName": "Cloud Collaborative Editing Platform",
       "keyCode": "P",
-      "titleEnglish": "Letter P",
-      "titlePortuguese": "Letra P",
+      "titleEnglish": "Cloud Collaborative Editing Platform",
+      "titlePortuguese": "Plataforma de edição colaborativa em nuvem",
       "iconPath": "",
-      "description": "Letter P input"
+      "description": "Permite criar e editar documentos em tempo real com outros usuários."
     },
     {
       "inputId": 16,
-      "inputName": "Letter Q",
+      "inputName": "Slide Presentation Platform",
       "keyCode": "Q",
-      "titleEnglish": "Letter Q",
-      "titlePortuguese": "Letra Q",
+      "titleEnglish": "Slide Presentation Platform",
+      "titlePortuguese": "Plataforma de apresentação de slides",
       "iconPath": "",
-      "description": "Letter Q input"
+      "description": "Cria e exibe conteúdos visuais para reuniões e palestras."
     },
     {
       "inputId": 17,
