@@ -205,13 +205,13 @@ public class DigitalLiteracyGameController : MonoBehaviour
             correctAnswers++;
         }
         
-        ShowFeedback(isCorrect, currentQuestion);
+        ShowFeedback(isCorrect, currentQuestion, answerIndex);
     }
     
-    void ShowFeedback(bool isCorrect, Question question)
+    void ShowFeedback(bool isCorrect, Question question, int usedInputId = -999)
     {
         currentState = GameState.Feedback;
-        FeedbackScreen.Instance?.SetFeedback(isCorrect, question);
+        FeedbackScreen.Instance?.SetFeedback(isCorrect, question, usedInputId);
         ScreenManager.SetCallScreen("FeedbackScreen");
         StartCoroutine(FeedbackTimeout());
         ResetInactiveTimer();

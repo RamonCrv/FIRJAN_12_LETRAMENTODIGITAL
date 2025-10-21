@@ -178,7 +178,7 @@ public class QuestionScreen : CanvasScreen
         {
             if (timerText != null)
             {
-                timerText.text = $"{Mathf.Ceil(timeRemaining)}s";
+                timerText.text = $"{Mathf.Ceil(timeRemaining)}";
             }
             
             if (timerFill != null)

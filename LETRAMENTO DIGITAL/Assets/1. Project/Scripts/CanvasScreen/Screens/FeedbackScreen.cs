@@ -95,32 +95,41 @@ public class FeedbackScreen : CanvasScreen
         }
     }
     
-    public void SetFeedback(bool isCorrect, Question question)
+    public void SetFeedback(bool isCorrect, Question question, int usedInputId = -999)
     {
-        DisplayFeedback(isCorrect, question);
+        DisplayFeedback(isCorrect, question, usedInputId);
         StartTimer();
     }
     
-    void DisplayFeedback(bool isCorrect, Question question)
+    void DisplayFeedback(bool isCorrect, Question question, int usedInputId)
     {
         GameLanguage currentLang = DigitalLiteracyGameController.Instance.GetCurrentLanguage();
+        bool useEnglish = (currentLang == GameLanguage.English);
         
         if (resultText != null)
         {
-            if (currentLang == GameLanguage.English)
+            if (usedInputId != -999 && InputManager.Instance != null)
             {
-                resultText.text = isCorrect ? "CORRECT!" : "INCORRECT!";
+                string inputTitle = InputManager.Instance.GetLocalizedInputTitle(usedInputId, useEnglish);
+                resultText.text = inputTitle;
             }
             else
             {
-                resultText.text = isCorrect ? "CORRETO!" : "INCORRETO!";
+                if (useEnglish)
+                {
+                    resultText.text = isCorrect ? "CORRECT!" : "INCORRECT!";
+                }
+                else
+                {
+                    resultText.text = isCorrect ? "CORRETO!" : "INCORRETO!";
+                }
             }
-            resultText.color = isCorrect ? correctColor : incorrectColor;
+            //resultText.color = isCorrect ? correctColor : incorrectColor;
         }
         
         if (feedbackText != null)
         {
-            if (currentLang == GameLanguage.English)
+            if (useEnglish)
             {
                 string feedbackToShow = isCorrect 
                     ? (!string.IsNullOrEmpty(question.feedback.correctEn) ? question.feedback.correctEn : question.feedback.correct)
@@ -135,8 +144,25 @@ public class FeedbackScreen : CanvasScreen
         
         if (resultIcon != null)
         {
-            resultIcon.sprite = isCorrect ? correctIcon : incorrectIcon;
-            resultIcon.color = isCorrect ? correctColor : incorrectColor;
+            if (usedInputId != -999 && InputManager.Instance != null)
+            {
+                Sprite inputIcon = InputManager.Instance.GetInputIcon(usedInputId);
+                if (inputIcon != null)
+                {
+                    resultIcon.sprite = inputIcon;
+                    resultIcon.color = Color.white;
+                }
+                else
+                {
+                    resultIcon.sprite = isCorrect ? correctIcon : incorrectIcon;
+                    resultIcon.color = isCorrect ? correctColor : incorrectColor;
+                }
+            }
+            else
+            {
+                resultIcon.sprite = isCorrect ? correctIcon : incorrectIcon;
+                resultIcon.color = isCorrect ? correctColor : incorrectColor;
+            }
         }
     }
     
