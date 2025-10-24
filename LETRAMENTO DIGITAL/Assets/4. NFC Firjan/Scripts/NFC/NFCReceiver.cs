@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using Lando;
 using UnityEngine.Events;
@@ -38,22 +38,69 @@ namespace _4._NFC_Firjan.Scripts.NFC
 
 		private void OnCardReaderDisconnectedHandler(object sender, CardreaderEventArgs e)
 		{
-			OnNFCReaderDisconected.Invoke();
+			if (_4._NFC_Firjan.Scripts.UnityMainThreadDispatcher.Exists())
+			{
+				_4._NFC_Firjan.Scripts.UnityMainThreadDispatcher.Instance().Enqueue(() =>
+				{
+					Debug.Log("[NFCReceiver] Leitor NFC desconectado (main thread)");
+					OnNFCReaderDisconected.Invoke();
+				});
+			}
+			else
+			{
+				Debug.LogError("[NFCReceiver] UnityMainThreadDispatcher não encontrado!");
+			}
 		}
 
 		private void OnCardReaderConnectedHandler(object sender, CardreaderEventArgs e)
 		{
-			OnNFCReaderConnected.Invoke(e.CardreaderName);
+			if (_4._NFC_Firjan.Scripts.UnityMainThreadDispatcher.Exists())
+			{
+				_4._NFC_Firjan.Scripts.UnityMainThreadDispatcher.Instance().Enqueue(() =>
+				{
+					Debug.Log($"[NFCReceiver] Leitor NFC conectado: {e.CardreaderName} (main thread)");
+					OnNFCReaderConnected.Invoke(e.CardreaderName);
+				});
+			}
+			else
+			{
+				Debug.LogError("[NFCReceiver] UnityMainThreadDispatcher não encontrado!");
+			}
 		}
 
 		private void OnCardDisconnectedHandler(object sender, CardreaderEventArgs e)
 		{
-			OnNFCDisconnected.Invoke();
+			if (_4._NFC_Firjan.Scripts.UnityMainThreadDispatcher.Exists())
+			{
+				_4._NFC_Firjan.Scripts.UnityMainThreadDispatcher.Instance().Enqueue(() =>
+				{
+					Debug.Log("[NFCReceiver] Cartão NFC removido (main thread)");
+					OnNFCDisconnected.Invoke();
+				});
+			}
+			else
+			{
+				Debug.LogError("[NFCReceiver] UnityMainThreadDispatcher não encontrado!");
+			}
 		}
 
 		private void OnCardConnectedHandler(object sender, CardreaderEventArgs e)
 		{
-			OnNFCConnected.Invoke(e.Card.Id,e.CardreaderName);
+			if (_4._NFC_Firjan.Scripts.UnityMainThreadDispatcher.Exists())
+			{
+				string cardId = e.Card.Id;
+				string readerName = e.CardreaderName;
+				
+				_4._NFC_Firjan.Scripts.UnityMainThreadDispatcher.Instance().Enqueue(() =>
+				{
+					Debug.Log($"[NFCReceiver] Cartão NFC conectado: {cardId} no leitor: {readerName} (main thread)");
+					OnNFCConnected.Invoke(cardId, readerName);
+				});
+			}
+			else
+			{
+				Debug.LogError("[NFCReceiver] UnityMainThreadDispatcher não encontrado!");
+			}
 		}
 
 		private void OnDestroy()

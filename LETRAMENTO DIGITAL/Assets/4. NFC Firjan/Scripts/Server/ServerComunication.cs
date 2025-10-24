@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -24,6 +24,7 @@ namespace _4._NFC_Firjan.Scripts.Server
 		private void Awake()
 		{
 			_client = new HttpClient();
+			_client.Timeout = TimeSpan.FromSeconds(3);
 		}
 
 		private string GetFullEndGameUrl(string nfcId)
@@ -43,13 +44,36 @@ namespace _4._NFC_Firjan.Scripts.Server
 		/// <returns>Codigo de status do update ao server <see cref="HttpStatusCode"/></returns>
 		public async Task<HttpStatusCode> UpdateNfcInfoFromGame(GameModel gameInfo)
 		{
-			var url = GetFullNfcUrl(gameInfo.nfcId);
-			var request = new HttpRequestMessage(HttpMethod.Post, url);
-			var content = new StringContent(gameInfo.ToString());
-			request.Content = content; 
-			Debug.Log($"Sending to {url}:{request.Content?.ReadAsStringAsync().Result}");
-			var response = _client.SendAsync(request).Result;
-			return response.StatusCode;
+			try
+			{
+				var url = GetFullNfcUrl(gameInfo.nfcId);
+				var request = new HttpRequestMessage(HttpMethod.Post, url);
+				var content = new StringContent(gameInfo.ToString());
+				content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+				request.Content = content;
+				
+				Debug.Log($"[ServerComunication] Enviando para {url}");
+				
+				var response = await _client.SendAsync(request);
+				
+				Debug.Log($"[ServerComunication] Resposta: {response.StatusCode}");
+				return response.StatusCode;
+			}
+			catch (HttpRequestException ex)
+			{
+				Debug.LogWarning($"[ServerComunication] Servidor offline ou inacessível: {ex.Message}");
+				return HttpStatusCode.ServiceUnavailable;
+			}
+			catch (TaskCanceledException ex)
+			{
+				Debug.LogWarning($"[ServerComunication] Timeout (3s) - Servidor não respondeu: {ex.Message}");
+				return HttpStatusCode.RequestTimeout;
+			}
+			catch (Exception ex)
+			{
+				Debug.LogWarning($"[ServerComunication] Erro inesperado: {ex.Message}");
+				return HttpStatusCode.InternalServerError;
+			}
 		}
 
 		/// <summary>
@@ -59,17 +83,39 @@ namespace _4._NFC_Firjan.Scripts.Server
 		/// <returns><see cref="EndGameResponseModel"></see></returns>
 		public async Task<EndGameResponseModel> GetNfcInfo(string nfcId)
 		{
-			var url = GetFullNfcUrl(nfcId);
-			var request = new HttpRequestMessage(HttpMethod.Get, url);
-			Debug.Log($"Sending to {url}");
-			var response = _client.SendAsync(request).Result;
-			Debug.Log($"Response code is {response.StatusCode}");
-			if (response.StatusCode == HttpStatusCode.OK)
+			try
 			{
-				return JsonConvert.DeserializeObject<EndGameResponseModel>(await response.Content.ReadAsStringAsync());
+				var url = GetFullNfcUrl(nfcId);
+				var request = new HttpRequestMessage(HttpMethod.Get, url);
+				Debug.Log($"[ServerComunication] GET {url}");
+				
+				var response = await _client.SendAsync(request);
+				Debug.Log($"[ServerComunication] Resposta: {response.StatusCode}");
+				
+				if (response.StatusCode == HttpStatusCode.OK)
+				{
+					var content = await response.Content.ReadAsStringAsync();
+					return JsonConvert.DeserializeObject<EndGameResponseModel>(content);
+				}
+				else
+				{
+					Debug.LogWarning($"[ServerComunication] Falha ao obter info. Status: {response.StatusCode}");
+					return null;
+				}
 			}
-			else
+			catch (HttpRequestException ex)
 			{
+				Debug.LogWarning($"[ServerComunication] Servidor offline: {ex.Message}");
+				return null;
+			}
+			catch (TaskCanceledException ex)
+			{
+				Debug.LogWarning($"[ServerComunication] Timeout: {ex.Message}");
+				return null;
+			}
+			catch (Exception ex)
+			{
+				Debug.LogWarning($"[ServerComunication] Erro: {ex.Message}");
 				return null;
 			}
 		}
@@ -80,28 +126,52 @@ namespace _4._NFC_Firjan.Scripts.Server
 		/// <param name="endGameRequestModel"></param>
 		/// <param name="nfcId"></param>
 		/// <returns></returns>
-		public async Task<EndGameResponseModel> PostNameForEndGameInfo(EndGameRequestModel endGameRequestModel, 
-			string nfcId)
+		public async Task<EndGameResponseModel> PostNameForEndGameInfo(EndGameRequestModel endGameRequestModel, string nfcId)
 		{
-			var url = GetFullEndGameUrl(nfcId);
-			var request = new HttpRequestMessage(HttpMethod.Post, url);
-			var content = new StringContent(endGameRequestModel.ToString());
-			request.Content = content;
-			
-			Debug.Log($"Sending to {url}:{request.Content?.ReadAsStringAsync().Result}");
-			var response = _client.SendAsync(request).Result;
-			Debug.Log($"Response code is {response.StatusCode}");
-			if (response.StatusCode == HttpStatusCode.OK)
+			try
 			{
-				return Newtonsoft.Json.JsonConvert.DeserializeObject<EndGameResponseModel>(response.Content.ReadAsStringAsync().Result);
+				var url = GetFullEndGameUrl(nfcId);
+				var request = new HttpRequestMessage(HttpMethod.Post, url);
+				var content = new StringContent(endGameRequestModel.ToString());
+				content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+				request.Content = content;
+				
+				Debug.Log($"[ServerComunication] POST {url}");
+				
+				var response = await _client.SendAsync(request);
+				Debug.Log($"[ServerComunication] Resposta: {response.StatusCode}");
+				
+				if (response.StatusCode == HttpStatusCode.OK)
+				{
+					var responseContent = await response.Content.ReadAsStringAsync();
+					return JsonConvert.DeserializeObject<EndGameResponseModel>(responseContent);
+				}
+				else
+				{
+					Debug.LogWarning($"[ServerComunication] Falha. Status: {response.StatusCode}");
+					return null;
+				}
 			}
-			else
+			catch (HttpRequestException ex)
 			{
-				Debug.Log($"Response code is {response.StatusCode}");
+				Debug.LogWarning($"[ServerComunication] Servidor offline: {ex.Message}");
 				return null;
 			}
-			
+			catch (TaskCanceledException ex)
+			{
+				Debug.LogWarning($"[ServerComunication] Timeout: {ex.Message}");
+				return null;
+			}
+			catch (Exception ex)
+			{
+				Debug.LogWarning($"[ServerComunication] Erro: {ex.Message}");
+				return null;
+			}
 		}
 		
+		private void OnDestroy()
+		{
+			_client?.Dispose();
+		}
 	}
 }

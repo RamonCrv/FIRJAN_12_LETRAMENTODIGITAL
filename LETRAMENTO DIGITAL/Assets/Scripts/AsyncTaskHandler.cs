@@ -12,7 +12,21 @@ public static class AsyncTaskHandler
     /// </summary>
     public static IEnumerator HandleTask<T>(Task<T> task, System.Action<T> onSuccess, System.Action<System.Exception> onError = null)
     {
-        yield return new WaitUntil(() => task.IsCompleted);
+        float timeout = 10f;
+        float elapsed = 0f;
+        
+        while (!task.IsCompleted && elapsed < timeout)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        
+        if (!task.IsCompleted)
+        {
+            Debug.LogError("[AsyncTaskHandler] Task timeout após 10 segundos");
+            onError?.Invoke(new System.TimeoutException("Task excedeu o tempo limite"));
+            yield break;
+        }
         
         if (task.Exception != null)
         {
@@ -36,7 +50,21 @@ public static class AsyncTaskHandler
     /// </summary>
     public static IEnumerator HandleTask(Task task, System.Action onSuccess, System.Action<System.Exception> onError = null)
     {
-        yield return new WaitUntil(() => task.IsCompleted);
+        float timeout = 10f;
+        float elapsed = 0f;
+        
+        while (!task.IsCompleted && elapsed < timeout)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        
+        if (!task.IsCompleted)
+        {
+            Debug.LogError("[AsyncTaskHandler] Task timeout após 10 segundos");
+            onError?.Invoke(new System.TimeoutException("Task excedeu o tempo limite"));
+            yield break;
+        }
         
         if (task.Exception != null)
         {

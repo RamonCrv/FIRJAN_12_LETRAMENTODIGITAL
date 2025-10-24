@@ -52,6 +52,8 @@ public class NFCGameManager : MonoBehaviour
     private bool gameResultsSent = false;
     private string currentNFCId = "";
     private Coroutine nfcTimeoutCoroutine;
+    private bool isSendingData = false;
+    private Coroutine returnToMenuCoroutine;
     
     // Properties
     public bool IsWaitingForNFC => isWaitingForNFC;
@@ -302,6 +304,14 @@ public class NFCGameManager : MonoBehaviour
     {
         if (!isWaitingForNFC) return;
         
+        Debug.Log($"[NFCGameManager] Cartão detectado - Thread ID: {System.Threading.Thread.CurrentThread.ManagedThreadId}");
+        
+        if (returnToMenuCoroutine != null)
+        {
+            StopCoroutine(returnToMenuCoroutine);
+            returnToMenuCoroutine = null;
+        }
+        
         currentNFCId = nfcId;
         Debug.Log($"[NFCGameManager] Cartão NFC detectado: {nfcId} no leitor: {readerName}");
         
@@ -310,6 +320,7 @@ public class NFCGameManager : MonoBehaviour
         
         SwitchToAfterNFCUI();
         
+        isSendingData = true;
         StartCoroutine(SendGameDataCoroutine());
     }
     
@@ -317,10 +328,15 @@ public class NFCGameManager : MonoBehaviour
     {
         Debug.Log("[NFCGameManager] Cartão NFC removido");
         
-        if (gameResultsSent)
+        if (gameResultsSent && !isSendingData)
         {
             UpdateNFCStatusText("Dados enviados com sucesso!");
-            StartCoroutine(DelayedReturnToMenu(3f));
+            returnToMenuCoroutine = StartCoroutine(DelayedReturnToMenu(3f));
+        }
+        else if (isSendingData)
+        {
+            Debug.LogWarning("[NFCGameManager] Cartão removido enquanto ainda processava. Aguarde...");
+            UpdateNFCStatusText("Aguarde a conclusão do envio...");
         }
     }
     
@@ -343,33 +359,51 @@ public class NFCGameManager : MonoBehaviour
         
         var sendTask = serverCommunication.UpdateNfcInfoFromGame(gameModel);
         
-        // Usar o handler de tarefas assíncronas
         yield return StartCoroutine(AsyncTaskHandler.HandleTask(
             sendTask,
             onSuccess: (statusCode) => {
-                Debug.Log($"[NFCGameManager] Resposta do servidor: {statusCode}");
+                Debug.Log($"[NFCGameManager] Código de resposta: {statusCode}");
                 
                 if (statusCode == HttpStatusCode.OK || statusCode == HttpStatusCode.Created)
                 {
                     gameResultsSent = true;
+                    isSendingData = false;
                     UpdateNFCStatusText("Dados enviados com sucesso!");
                     UpdateNFCInstructionText("Você pode remover o cartão");
                 }
+                else if (statusCode == HttpStatusCode.ServiceUnavailable || 
+                         statusCode == HttpStatusCode.RequestTimeout)
+                {
+                    isSendingData = false;
+                    UpdateNFCStatusText("Servidor offline. Dados não foram salvos.");
+                    UpdateNFCInstructionText("Remova o cartão para continuar");
+                    
+                    Debug.LogWarning("[NFCGameManager] Servidor offline, mas continuando o jogo");
+                    
+                    returnToMenuCoroutine = StartCoroutine(DelayedAction(3f, () => {
+                        StopWaitingForNFC();
+                        ReturnToMenu();
+                    }));
+                }
                 else
                 {
-                    UpdateNFCStatusText("Erro ao enviar dados. Tente novamente.");
-                    UpdateNFCInstructionText("Código de erro: " + statusCode);
-                    StartCoroutine(DelayedAction(3f, () => {
+                    isSendingData = false;
+                    UpdateNFCStatusText("Erro ao enviar dados.");
+                    UpdateNFCInstructionText("Código: " + statusCode);
+                    
+                    returnToMenuCoroutine = StartCoroutine(DelayedAction(3f, () => {
                         StopWaitingForNFC();
                         ReturnToMenu();
                     }));
                 }
             },
             onError: (exception) => {
-                Debug.LogError($"[NFCGameManager] Erro ao enviar dados: {exception.Message}");
-                UpdateNFCStatusText("Erro de conexão. Verifique a rede.");
-                UpdateNFCInstructionText("Tentando novamente...");
-                StartCoroutine(DelayedAction(3f, () => {
+                Debug.LogWarning($"[NFCGameManager] Falha na conexão: {exception.Message}");
+                isSendingData = false;
+                UpdateNFCStatusText("Servidor inacessível. Dados não foram salvos.");
+                UpdateNFCInstructionText("Remova o cartão para continuar");
+                
+                returnToMenuCoroutine = StartCoroutine(DelayedAction(3f, () => {
                     StopWaitingForNFC();
                     ReturnToMenu();
                 }));
@@ -426,9 +460,18 @@ public class NFCGameManager : MonoBehaviour
     
     public void ResetForNewGame()
     {
+        if (returnToMenuCoroutine != null)
+        {
+            StopCoroutine(returnToMenuCoroutine);
+            returnToMenuCoroutine = null;
+        }
+        
         StopWaitingForNFC();
         gameResultsSent = false;
+        isSendingData = false;
         currentNFCId = "";
+        
+        Debug.Log("[NFCGameManager] Reset completo para novo jogo");
     }
     
     public bool ValidateNFCSystem()
