@@ -15,7 +15,7 @@
       "keyCode": "B",
       "titleEnglish": "Corporate Antivirus",
       "titlePortuguese": "Antivírus corporativo",
-      "iconPath": "Files/iconTest.png",
+      "iconPath": "Files/antivirus.png",
       "description": "Protege arquivos e sistemas contra vírus e ameaças digitais."
     },
     {
@@ -33,7 +33,7 @@
       "keyCode": "D",
       "titleEnglish": "Reverse Image Search Tool",
       "titlePortuguese": "Ferramenta de busca reversa de imagens",
-      "iconPath": "Files/iconTest.png",
+      "iconPath": "Files/search.png",
       "description": "Verifica a origem e autenticidade de imagens na internet."
     },
     {
@@ -51,7 +51,7 @@
       "keyCode": "F",
       "titleEnglish": "Task Manager",
       "titlePortuguese": "Gerenciador de tarefas",
-      "iconPath": "Files/iconTest.png",
+      "iconPath": "Files/task.png",
       "description": "Organiza prazos, atividades e prioridades de projetos."
     },
     {
@@ -60,7 +60,7 @@
       "keyCode": "G",
       "titleEnglish": "Social Network",
       "titlePortuguese": "Rede social",
-      "iconPath": "Files/iconTest.png",
+      "iconPath": "Files/task.png",
       "description": "Permite compartilhar conteúdos e acompanhar interações online."
     },
     {
@@ -69,7 +69,7 @@
       "keyCode": "H",
       "titleEnglish": "Automatic Translation Platform",
       "titlePortuguese": "Plataforma de tradução automática",
-      "iconPath": "Files/iconTest.png",
+      "iconPath": "Files/task.png",
       "description": "Traduz textos e mensagens em diferentes idiomas rapidamente."
     },
     {
@@ -78,7 +78,7 @@
       "keyCode": "I",
       "titleEnglish": "Video Platform",
       "titlePortuguese": "Plataforma de vídeo",
-      "iconPath": "Files/iconTest.png",
+      "iconPath": "Files/search.png",
       "description": "Reúne conteúdos audiovisuais para aprendizado e divulgação."
     },
     {
@@ -96,7 +96,7 @@
       "keyCode": "K",
       "titleEnglish": "Photo Editor",
       "titlePortuguese": "Editor de fotos",
-      "iconPath": "Files/iconTest.png",
+      "iconPath": "Files/search.png",
       "description": "Ajusta cores, luz e enquadramento para melhorar imagens."
     },
     {
@@ -105,7 +105,7 @@
       "keyCode": "L",
       "titleEnglish": "Spreadsheets",
       "titlePortuguese": "Planilhas",
-      "iconPath": "Files/iconTest.png",
+      "iconPath": "Files/task.png",
       "description": "Organizam dados e permitem cálculos automáticos."
     },
     {
@@ -114,7 +114,7 @@
       "keyCode": "M",
       "titleEnglish": "Official Government Portals",
       "titlePortuguese": "Portais oficiais de governo",
-      "iconPath": "Files/iconTest.png",
+      "iconPath": "Files/government.png",
       "description": "Reúnem informações oficiais, leis e documentos públicos."
     },
     {
@@ -123,7 +123,7 @@
       "keyCode": "N",
       "titleEnglish": "Search Engine",
       "titlePortuguese": "Buscador",
-      "iconPath": "Files/iconTest.png",
+      "iconPath": "Files/search.png",
       "description": "Localiza informações, sites e conteúdos na internet."
     },
     {
@@ -132,7 +132,7 @@
       "keyCode": "O",
       "titleEnglish": "Company Intranet",
       "titlePortuguese": "Intranet da empresa",
-      "iconPath": "Files/iconTest.png",
+      "iconPath": "Files/antivirus.png",
       "description": "Centraliza comunicados e informações internas da organização."
     },
     {
@@ -141,7 +141,7 @@
       "keyCode": "P",
       "titleEnglish": "Cloud Collaborative Editing Platform",
       "titlePortuguese": "Plataforma de edição colaborativa em nuvem",
-      "iconPath": "Files/iconTest.png",
+      "iconPath": "Files/cloud.png",
       "description": "Permite criar e editar documentos em tempo real com outros usuários."
     },
     {
@@ -150,7 +150,7 @@
       "keyCode": "Q",
       "titleEnglish": "Slide Presentation Platform",
       "titlePortuguese": "Plataforma de apresentação de slides",
-      "iconPath": "Files/iconTest.png",
+      "iconPath": "Files/search.png",
       "description": "Cria e exibe conteúdos visuais para reuniões e palestras."
     },
     {
