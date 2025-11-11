@@ -65,27 +65,21 @@ public class ConfirmationPopUp : MonoBehaviour
     {
         if (!isActive) return;
         
-        // Check if this is a global reset input (0 or -1) - let InputManager handle it
-        if (IsGlobalResetInput(inputId))
+        if (IsResetInput(inputId))
         {
-            // Don't handle reset inputs here - let InputManager process them
-            return;
+            ConfirmAction();
         }
-        
-        if (inputId == confirmInputId || inputId == alternateConfirmInputId)
+        else if (inputId == confirmInputId || inputId == alternateConfirmInputId)
         {
-            Debug.Log($"ConfirmationPopUp: Input {inputId} is confirming popup");
             ConfirmAction();
         }
         else
         {
-            Debug.Log($"ConfirmationPopUp: Input {inputId} is cancelling popup (just closing)");
-            // Any other input just cancels the popup (closes it without reset)
             CancelAction();
         }
     }
     
-    private bool IsGlobalResetInput(int inputId)
+    private bool IsResetInput(int inputId)
     {
         if (InputManager.Instance != null && InputManager.Instance.IsGlobalResetEnabled())
         {
@@ -94,12 +88,10 @@ public class ConfirmationPopUp : MonoBehaviour
             {
                 if (inputId == resetId)
                 {
-                    Debug.Log($"ConfirmationPopUp: Input {inputId} is a global reset input, letting InputManager handle it");
                     return true;
                 }
             }
         }
-        Debug.Log($"ConfirmationPopUp: Input {inputId} is NOT a global reset input, handling locally");
         return false;
     }
     
@@ -131,13 +123,10 @@ public class ConfirmationPopUp : MonoBehaviour
         {
             gameObject.SetActive(true);
         }
-        
-        Debug.Log("Confirmation popup shown");
     }
     
     private void HidePopup()
     {
-        Debug.Log("ConfirmationPopUp: Hiding popup and setting isActive = false");
         isActive = false;
         if (canvasGroup != null)
         {
@@ -149,13 +138,10 @@ public class ConfirmationPopUp : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-        
-        Debug.Log($"ConfirmationPopUp: Popup hidden, isActive = {isActive}");
     }
     
     private void ConfirmAction()
     {
-        Debug.Log("Popup confirmed");
         HidePopup();
         onConfirm?.Invoke();
         ClearCallbacks();
@@ -163,7 +149,6 @@ public class ConfirmationPopUp : MonoBehaviour
     
     private void CancelAction()
     {
-        Debug.Log("Popup cancelled - just closing popup, no reset");
         HidePopup();
         onCancel?.Invoke();
         ClearCallbacks();
@@ -185,7 +170,6 @@ public class ConfirmationPopUp : MonoBehaviour
     /// </summary>
     public void ForceHide()
     {
-        Debug.Log("ConfirmationPopUp: Force hiding popup");
         HidePopup();
         ClearCallbacks();
     }
