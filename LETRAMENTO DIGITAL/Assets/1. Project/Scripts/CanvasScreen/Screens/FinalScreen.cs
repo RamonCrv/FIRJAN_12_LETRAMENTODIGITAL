@@ -36,6 +36,10 @@ public class FinalScreen : CanvasScreen
     [SerializeField] private Image scoreBar2Fill;
     [SerializeField] private Image scoreBar3Fill;
     private const float MAX_SCORE = 10f;
+    
+    [Header("Fill Animation Settings")]
+    [SerializeField] private float fillAnimationDuration = 1.5f;
+    [SerializeField] private AnimationCurve fillAnimationCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
 
     [Header("Score Colors")]
     [SerializeField] private Color excellentColor = Color.green;
@@ -239,17 +243,55 @@ public class FinalScreen : CanvasScreen
         {
             PlayerScore score = DigitalLiteracyGameController.Instance.playerScore;
 
+            float targetFill1 = CalculateFillAmount(score.letramentoDigital);
+            float targetFill2 = CalculateFillAmount(score.pensamentoAnalitico);
+            float targetFill3 = CalculateFillAmount(score.curiosidade);
+
             if (scoreBar1Fill != null)
-                scoreBar1Fill.fillAmount = score.letramentoDigital / MAX_SCORE;
+                StartCoroutine(AnimateFillAmount(scoreBar1Fill, targetFill1, 0f));
 
             if (scoreBar2Fill != null)
-                scoreBar2Fill.fillAmount = score.pensamentoAnalitico / MAX_SCORE;
+                StartCoroutine(AnimateFillAmount(scoreBar2Fill, targetFill2, 0.2f));
 
             if (scoreBar3Fill != null)
-                scoreBar3Fill.fillAmount = score.curiosidade / MAX_SCORE;
+                StartCoroutine(AnimateFillAmount(scoreBar3Fill, targetFill3, 0.4f));
 
-            Debug.Log($"[FinalScreen] Fills atualizados: {score.letramentoDigital}/10, {score.pensamentoAnalitico}/10, {score.curiosidade}/10");
+            Debug.Log($"[FinalScreen] Fills atualizados: {score.letramentoDigital}/10 ({targetFill1:F2}), {score.pensamentoAnalitico}/10 ({targetFill2:F2}), {score.curiosidade}/10 ({targetFill3:F2})");
         }
+    }
+    
+    float CalculateFillAmount(int scoreValue)
+    {
+        float normalizedScore = Mathf.Clamp01(scoreValue / MAX_SCORE);
+        float fillRange = 1f - (1f / 3f);
+        float fillAmount = (1f / 3f) + (normalizedScore * fillRange);
+        
+        return fillAmount;
+    }
+    
+    IEnumerator AnimateFillAmount(Image fillImage, float targetFill, float delay)
+    {
+        if (fillImage == null) yield break;
+        
+        yield return new WaitForSeconds(delay);
+        
+        float startFill = 1f / 3f;
+        fillImage.fillAmount = startFill;
+        
+        float elapsed = 0f;
+        
+        while (elapsed < fillAnimationDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / fillAnimationDuration);
+            float curveValue = fillAnimationCurve.Evaluate(t);
+            
+            fillImage.fillAmount = Mathf.Lerp(startFill, targetFill, curveValue);
+            
+            yield return null;
+        }
+        
+        fillImage.fillAmount = targetFill;
     }
 
     void StartAutoReturnTimer()

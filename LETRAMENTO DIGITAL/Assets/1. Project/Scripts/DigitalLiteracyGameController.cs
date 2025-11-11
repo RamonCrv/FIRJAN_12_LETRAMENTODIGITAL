@@ -262,32 +262,14 @@ public class DigitalLiteracyGameController : MonoBehaviour
     
     void CalculateFinalPlayerScore()
     {
-        // Calcular pontuações baseadas no desempenho
         float percentage = selectedQuestions.Count > 0 ? (float)correctAnswers / selectedQuestions.Count : 0f;
 
-        int letramentoTecnologico, iaEBigData, pensamentoCriativo;
-
-        if (correctAnswers >= 4)
-        {
-            letramentoTecnologico = 8;
-            iaEBigData = 7;
-            pensamentoCriativo = 6;
-        }
-        else if (correctAnswers >= 2)
-        {
-            letramentoTecnologico = 7;
-            iaEBigData = 6;
-            pensamentoCriativo = 5;
-        }
-        else
-        {
-            letramentoTecnologico = 6;
-            iaEBigData = 5;
-            pensamentoCriativo = 4;
-        }
+        int letramentoTecnologico = Mathf.RoundToInt(percentage * 10f);
+        int iaEBigData = Mathf.RoundToInt(percentage * 10f);
+        int pensamentoCriativo = Mathf.RoundToInt(percentage * 10f);
 
         playerScore = new PlayerScore(letramentoTecnologico, iaEBigData, pensamentoCriativo);
-        Debug.Log($"[DigitalLiteracy] Pontuação calculada: {playerScore}");
+        Debug.Log($"[DigitalLiteracy] Pontuação calculada: {playerScore} ({correctAnswers}/{selectedQuestions.Count} = {percentage:P0})");
     }
     
     public void ReturnToIdle()

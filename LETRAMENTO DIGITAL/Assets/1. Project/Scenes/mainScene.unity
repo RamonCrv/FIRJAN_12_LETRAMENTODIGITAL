@@ -765,8 +765,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1366.7214, y: 1080.5}
-  m_SizeDelta: {x: 2734.4429, y: 2161}
+  m_AnchoredPosition: {x: 1188, y: 1080.5}
+  m_SizeDelta: {x: 3007.8872, y: 2377.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &339950582
 MonoBehaviour:
@@ -816,7 +816,7 @@ ParentConstraint:
   m_Enabled: 1
   serializedVersion: 2
   m_Weight: 1
-  m_TranslationAtRest: {x: -553.27856, y: 0.5, z: 0}
+  m_TranslationAtRest: {x: -732, y: 0.5, z: 0}
   m_RotationAtRest: {x: 0, y: 0, z: 0}
   m_TranslationOffsets:
   - {x: 0, y: 0, z: 0}
@@ -868,8 +868,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1366.7214, y: 1080.5}
-  m_SizeDelta: {x: 2734.4429, y: 2161}
+  m_AnchoredPosition: {x: 1188, y: 1080.5}
+  m_SizeDelta: {x: 3007.8872, y: 2377.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371963070
 MonoBehaviour:
@@ -1834,7 +1834,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -547.1913, y: 0}
-  m_SizeDelta: {x: 2745.6172, y: 2160}
+  m_SizeDelta: {x: 3020.1787, y: 2376}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &858305272
 MonoBehaviour:
@@ -1978,9 +1978,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875309177}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &902933205
 GameObject:
@@ -2964,9 +2964,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334839944}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &1345809162
 GameObject:
@@ -3936,9 +3936,25 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2224587306113649066, guid: 21809dd25b7ddd443bab8b28f3954f7b, type: 3}
+      propertyPath: data.editor_turnOn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4054048202699291697, guid: 21809dd25b7ddd443bab8b28f3954f7b, type: 3}
       propertyPath: m_Name
       value: IdleScreen (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701407923383292581, guid: 21809dd25b7ddd443bab8b28f3954f7b, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701407923383292581, guid: 21809dd25b7ddd443bab8b28f3954f7b, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701407923383292581, guid: 21809dd25b7ddd443bab8b28f3954f7b, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8181889011927135761, guid: 21809dd25b7ddd443bab8b28f3954f7b, type: 3}
       propertyPath: m_Pivot.x
@@ -6647,6 +6663,31 @@ MonoBehaviour:
   scoreBar1Fill: {fileID: 4624595035651927617}
   scoreBar2Fill: {fileID: 7163918192699660258}
   scoreBar3Fill: {fileID: 968858820125813339}
+  fillAnimationDuration: 1.5
+  fillAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   excellentColor: {r: 0, g: 1, b: 0, a: 1}
   goodColor: {r: 0, g: 0, b: 1, a: 1}
   averageColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
