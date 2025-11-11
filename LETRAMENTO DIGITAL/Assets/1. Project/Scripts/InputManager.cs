@@ -12,8 +12,10 @@ public class InputManager : MonoBehaviour
     [Header("Global Reset Settings")]
     [SerializeField] private bool enableGlobalReset = true;
     [SerializeField] private int[] resetInputIds = { 0, -1 };
+    [SerializeField] private float resetCooldownTime = 0.5f;
     
     private Dictionary<int, KeyCode> inputMappings = new Dictionary<int, KeyCode>();
+    private float lastStateChangeTime = 0f;
     
     public static event Action<int> OnInputTriggered;
     public static event Action OnGlobalReset;
@@ -99,9 +101,6 @@ public class InputManager : MonoBehaviour
     {
         if (!enableGlobalReset) return;
         
-        Debug.Log($"InputManager: Checking input {inputId} for global reset");
-        
-        // Check if this input should trigger a global reset
         bool shouldReset = false;
         foreach (int resetId in resetInputIds)
         {
@@ -114,38 +113,28 @@ public class InputManager : MonoBehaviour
         
         if (shouldReset)
         {
-            Debug.Log($"InputManager: Reset input {inputId} triggered!");
-            
-            // Only reset if we're not in the idle screen and popup is not active
-            if (IsInGameplay() && !IsPopupActive())
+            if (!IsInGameplay())
             {
-                var currentState = DigitalLiteracyGameController.Instance.currentState;
-                
-                // Different behavior based on game state
-                if (currentState == DigitalLiteracyGameController.GameState.Final)
-                {
-                    // Direct reset for final screen
-                    Debug.Log($"Direct reset from Final screen triggered by input ID: {inputId}");
-                    TriggerGlobalReset();
-                }
-                else if (currentState == DigitalLiteracyGameController.GameState.Question || 
-                         currentState == DigitalLiteracyGameController.GameState.Feedback)
-                {
-                    // Show confirmation popup for question and feedback screens
-                    Debug.Log($"Showing confirmation popup triggered by input ID: {inputId}");
-                    ShowExitConfirmationPopup();
-                }
+                return;
             }
-            // If popup is active, let it handle the reset input
-            else if (IsPopupActive())
+            
+            float timeSinceStateChange = Time.time - lastStateChangeTime;
+            if (timeSinceStateChange < resetCooldownTime)
             {
-                Debug.Log($"Popup is active, reset input {inputId} will close popup and reset");
-                // Properly close popup and reset its state
-                if (ConfirmationPopUp.Instance != null)
-                {
-                    ConfirmationPopUp.Instance.ForceHide();
-                }
-                TriggerGlobalReset();
+                return;
+            }
+            
+            if (IsPopupActive())
+            {
+                return;
+            }
+            
+            var currentState = DigitalLiteracyGameController.Instance.currentState;
+            
+            if (currentState == DigitalLiteracyGameController.GameState.Question || 
+                currentState == DigitalLiteracyGameController.GameState.Feedback)
+            {
+                ShowExitConfirmationPopup();
             }
         }
     }
@@ -196,6 +185,11 @@ public class InputManager : MonoBehaviour
     public void TriggerInput(int inputId)
     {
         OnInputTriggered?.Invoke(inputId);
+    }
+    
+    public void NotifyStateChange()
+    {
+        lastStateChangeTime = Time.time;
     }
     
     public bool IsInputPressed(int inputId)

@@ -80,6 +80,10 @@ public class IdleScreen : CanvasScreen
     
     public void StartGame(GameLanguage language)
     {
+        if (InputManager.Instance != null)
+        {
+            InputManager.Instance.NotifyStateChange();
+        }
         DigitalLiteracyGameController.Instance?.StartQuestions(language);
     }
 

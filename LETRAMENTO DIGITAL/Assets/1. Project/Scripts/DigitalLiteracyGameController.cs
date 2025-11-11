@@ -137,9 +137,13 @@ public class DigitalLiteracyGameController : MonoBehaviour
     public void StartGame()
     {
         currentState = GameState.Idle;
-        currentLanguage = GameLanguage.Portuguese; // Always reset to Portuguese when returning to idle
+        currentLanguage = GameLanguage.Portuguese;
         isWaitingForInput = true;
         ResetInactiveTimer();
+        if (InputManager.Instance != null)
+        {
+            InputManager.Instance.NotifyStateChange();
+        }
         ScreenManager.SetCallScreen("IdleScreen");
     }
     
@@ -170,6 +174,10 @@ public class DigitalLiteracyGameController : MonoBehaviour
         if (currentQuestionIndex < selectedQuestions.Count)
         {
             currentState = GameState.Question;
+            if (InputManager.Instance != null)
+            {
+                InputManager.Instance.NotifyStateChange();
+            }
             QuestionScreen.Instance?.SetQuestion(selectedQuestions[currentQuestionIndex]);
             ScreenManager.SetCallScreen("QuestionScreen");
             StartCoroutine(QuestionTimeout());
@@ -211,6 +219,10 @@ public class DigitalLiteracyGameController : MonoBehaviour
     void ShowFeedback(bool isCorrect, Question question, int usedInputId = -999)
     {
         currentState = GameState.Feedback;
+        if (InputManager.Instance != null)
+        {
+            InputManager.Instance.NotifyStateChange();
+        }
         FeedbackScreen.Instance?.SetFeedback(isCorrect, question, usedInputId);
         ScreenManager.SetCallScreen("FeedbackScreen");
         StartCoroutine(FeedbackTimeout());
@@ -236,8 +248,11 @@ public class DigitalLiteracyGameController : MonoBehaviour
     void ShowFinalScreen()
     {
         currentState = GameState.Final;
+        if (InputManager.Instance != null)
+        {
+            InputManager.Instance.NotifyStateChange();
+        }
         
-        // Calcular pontuação final para NFC
         CalculateFinalPlayerScore();
         
         FinalScreen.Instance?.SetResults(correctAnswers, selectedQuestions.Count);
