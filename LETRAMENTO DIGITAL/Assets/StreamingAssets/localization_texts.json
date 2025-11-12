@@ -74,7 +74,21 @@
       "id": "nfcInstruction",
       "portuguese": "Escolha um card que melhor responde á pergunta e encoste-o no espaço indicado do móvel.",
       "english": "Choose a card that best answers the question and tap it on the designated area of the device."
+    },
+    {
+      "id": "score1",
+      "portuguese": "APRENDIZADO CONTÍNUO",
+      "english": "CONTINUOUS LEARNING"
+    },
+    {
+      "id": "score2",
+      "portuguese": "LETRAMENTO TECNOLÓGICO",
+      "english": "TECHNOLOGICAL LITERACY"
+    },
+    {
+      "id": "score3",
+      "portuguese": "CURIOSIDADE",
+      "english": "CURIOSITY"
     }
-
   ]
 }

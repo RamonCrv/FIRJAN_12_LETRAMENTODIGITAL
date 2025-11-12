@@ -97,6 +97,18 @@ public class FeedbackScreen : CanvasScreen
     
     public void SetFeedback(bool isCorrect, Question question, int usedInputId = -999)
     {
+        if (AudioManager.Instance != null)
+        {
+            if (isCorrect)
+            {
+                AudioManager.Instance.PlayCorrectSound();
+            }
+            else
+            {
+                AudioManager.Instance.PlayWrongSound();
+            }
+        }
+        
         DisplayFeedback(isCorrect, question, usedInputId);
         StartTimer();
     }

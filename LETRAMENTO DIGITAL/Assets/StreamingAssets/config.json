@@ -2,7 +2,7 @@
   "timeoutSettings": {
     "generalTimeoutSeconds": 60,
     "questionTimeoutSeconds": 20,
-    "feedbackTimeoutSeconds": 1,
+    "feedbackTimeoutSeconds": 5,
     "finalScreenTimeoutSeconds": 15
   },
   "server": {
@@ -24,12 +24,12 @@
         "Music and podcast platform (Spotify)",
         "Photo editing tool (Photoshop)"
       ],
-      "correctAnswer": 1,
+      "correctAnswer": 9,
       "feedback": {
-        "correct": "Correto! Antivírus corporativos são ferramentas essenciais para verificar a autenticidade e segurança das informações digitais.",
-        "incorrect": "Incorreto. A resposta correta é a alternativa A - Antivírus corporativo. Essas ferramentas ajudam a combater desinformação verificando a segurança das informações.",
-        "correctEn": "Correct! Corporate antivirus are essential tools for verifying the authenticity and security of digital information.",
-        "incorrectEn": "Incorrect. The correct answer is alternative A - Corporate antivirus. These tools help combat misinformation by verifying information security."
+        "correct": "Muito bem! Plataformas de checagem confirmam se a notícia é confiável antes de repassá-la.",
+        "incorrect": "Incorreto. Essa não é a ferramenta ideal para a situação.",
+        "correctEn": "Correct! fact-checking platforms confirm whether the news is reliable before passing it on.",
+        "incorrectEn": "Incorrect. This is not the ideal tool for the situation."
       }
     },
     {
@@ -49,9 +49,9 @@
       "correctAnswer": 1,
       "feedback": {
         "correct": "Correto! Antivírus corporativos podem detectar malware e riscos de segurança em arquivos suspeitos.",
-        "incorrect": "Incorreto. A resposta correta é a alternativa A - Antivírus corporativo. Essas ferramentas podem identificar riscos de segurança em arquivos.",
+        "incorrect": "Incorreto. Essa não é a ferramenta ideal para a situação.",
         "correctEn": "Correct! Corporate antivirus can detect malware and security risks in suspicious files.",
-        "incorrectEn": "Incorrect. The correct answer is alternative A - Corporate antivirus. These tools can identify security risks in files."
+        "incorrectEn": "Incorrect. This is not the ideal tool for the situation."
       }
     },
     {
@@ -68,12 +68,12 @@
         "Editing tool (WhatsApp application)",
         "Check only visually"
       ],
-      "correctAnswer": 1,
+      "correctAnswer": 3,
       "feedback": {
         "correct": "Correto! Ferramentas de busca reversa de imagens são ideais para verificar a autenticidade de fotos.",
-        "incorrect": "Incorreto. A resposta correta é a alternativa A - Ferramenta de busca reversa de imagens. Essas ferramentas verificam a origem e autenticidade de imagens.",
+        "incorrect": "Incorreto. Essa não é a ferramenta ideal para a situação.",
         "correctEn": "Correct! Reverse image search tools are ideal for verifying photo authenticity.",
-        "incorrectEn": "Incorrect. The correct answer is alternative A - Reverse image search tool. These tools verify the origin and authenticity of images."
+        "incorrectEn": "Incorrect. This is not the ideal tool for the situation."
       }
     },
     {
@@ -90,12 +90,12 @@
         "Social Networks",
         "Music and podcast platform (Spotify)"
       ],
-      "correctAnswer": 1,
+      "correctAnswer": 12,
       "feedback": {
         "correct": "Correto! Portais oficiais do governo são as fontes mais confiáveis para verificar informações sobre legislação.",
-        "incorrect": "Incorreto. A resposta correta é a alternativa A - Portais oficiais do governo. Essas são as fontes mais confiáveis para informações oficiais.",
+        "incorrect": "Incorreto. Essa não é a ferramenta ideal para a situação.",
         "correctEn": "Correct! Official government portals are the most reliable sources for verifying information about legislation.",
-        "incorrectEn": "Incorrect. The correct answer is alternative A - Official government portals. These are the most reliable sources for official information."
+        "incorrectEn": "Incorrect. This is not the ideal tool for the situation."
       }
     },
     {
@@ -112,12 +112,12 @@
         "Video platform (YouTube)",
         "Online translator"
       ],
-      "correctAnswer": 1,
+      "correctAnswer": 5,
       "feedback": {
-        "correct": "Correto! Um comunicador de tarefas é a ferramenta ideal para coordenar projetos e responsabilidades.",
-        "incorrect": "Incorreto. A resposta correta é a alternativa A - Comunicador de tarefas. Essa ferramenta é específica para gerenciamento de projetos.",
-        "correctEn": "Correct! A task communicator is the ideal tool for coordinating projects and responsibilities.",
-        "incorrectEn": "Incorrect. The correct answer is alternative A - Task communicator. This tool is specific for project management."
+        "correct": "Correto! Um gerenciador de tarefas é a ferramenta ideal para coordenar projetos e responsabilidades.",
+        "incorrect": "Incorreto. Essa não é a ferramenta ideal para a situação.",
+        "correctEn": "Correct! A task manager is the ideal tool for coordinating projects and responsibilities.",
+        "incorrectEn": "Incorrect. This is not the ideal tool for the situation."
       }
     },
     {
@@ -134,12 +134,12 @@
         "Digital communication tool (WhatsApp)",
         "Video platform (YouTube)"
       ],
-      "correctAnswer": 1,
+      "correctAnswer": 3,
       "feedback": {
         "correct": "Correto! A busca reversa de imagens é a melhor forma de verificar a origem e autenticidade de imagens.",
-        "incorrect": "Incorreto. A resposta correta é a alternativa A - busca reversa de imagens. Essa ferramenta permite verificar a origem de imagens.",
+        "incorrect": "Incorreto. Essa não é a ferramenta ideal para a situação.",
         "correctEn": "Correct! Reverse image search is the best way to verify the origin and authenticity of images.",
-        "incorrectEn": "Incorrect. The correct answer is alternative A - reverse image search. This tool allows you to verify the origin of images."
+        "incorrectEn": "Incorrect. This is not the ideal tool for the situation."
       }
     },
     {
@@ -156,12 +156,12 @@
         "Search engine (Google)",
         "Company intranet"
       ],
-      "correctAnswer": 1,
+      "correctAnswer": 6,
       "feedback": {
         "correct": "Correto! Redes sociais são a principal plataforma para acompanhar comentários e menções sobre a empresa.",
-        "incorrect": "Incorreto. A resposta correta é a alternativa A - Rede social. Essas plataformas são onde acontecem as principais discussões públicas.",
+        "incorrect": "Incorreto. Essa não é a ferramenta ideal para a situação.",
         "correctEn": "Correct! Social networks are the main platform for monitoring comments and mentions about the company.",
-        "incorrectEn": "Incorrect. The correct answer is alternative A - Social network. These platforms are where the main public discussions take place."
+        "incorrectEn": "Incorrect. This is not the ideal tool for the situation."
       }
     },
     {
@@ -181,9 +181,9 @@
       "correctAnswer": 1,
       "feedback": {
         "correct": "Correto! Antivírus corporativo é essencial para verificar a segurança de arquivos externos.",
-        "incorrect": "Incorreto. A resposta correta é a alternativa A - Antivírus corporativo. É a ferramenta apropriada para verificar segurança de arquivos.",
+        "incorrect": "Incorreto. Essa não é a ferramenta ideal para a situação.",
         "correctEn": "Correct! Corporate antivirus is essential for verifying the security of external files.",
-        "incorrectEn": "Incorrect. The correct answer is alternative A - Corporate antivirus. It's the appropriate tool for verifying file security."
+        "incorrectEn": "Incorrect. This is not the ideal tool for the situation."
       }
     },
     {
@@ -200,12 +200,12 @@
         "Book publishing platform",
         "Automatic translation platform"
       ],
-      "correctAnswer": 1,
+      "correctAnswer": 15,
       "feedback": {
-        "correct": "Correto! Plataformas colaborativas em nuvem permitem trabalho em equipe em tempo real independente da localização.",
-        "incorrect": "Incorreto. A resposta correta é a alternativa A - Plataforma colaborativa em nuvem. Essa ferramenta é ideal para colaboração remota.",
-        "correctEn": "Correct! Cloud collaborative platforms allow real-time teamwork regardless of location.",
-        "incorrectEn": "Incorrect. The correct answer is alternative A - Cloud collaborative platform. This tool is ideal for remote collaboration."
+        "correct": "Perfeito! A nuvem permite que todos colaborem no mesmo arquivo em tempo real.",
+        "incorrect": "Incorreto. Essa não é a ferramenta ideal para a situação.",
+        "correctEn": "Correct! The cloud lets everyone collaborate on the same file in real time.",
+        "incorrectEn": "Incorrect. This is not the ideal tool for the situation."
       }
     },
     {
@@ -224,10 +224,10 @@
       ],
       "correctAnswer": 1,
       "feedback": {
-        "correct": "Correto! Comunicadores de tarefas oferecem funcionalidades de organização e alertas automáticos.",
-        "incorrect": "Incorreto. A resposta correta é a alternativa A - Comunicador de tarefas. Essa ferramenta permite organizar datas e configurar alertas.",
-        "correctEn": "Correct! Task communicators offer organization features and automatic alerts.",
-        "incorrectEn": "Incorrect. The correct answer is alternative A - Task communicator. This tool allows organizing dates and setting up alerts."
+        "correct": "Correto! A ferramenta organiza prazos e dispara alertas automáticos de pagamento.",
+        "incorrect": "Incorreto. Essa não é a ferramenta ideal para a situação.",
+        "correctEn": "Correct! the tool organizes due dates and triggers automatic payment alerts.",
+        "incorrectEn": "Incorrect. This is not the ideal tool for the situation."
       }
     }
   ]

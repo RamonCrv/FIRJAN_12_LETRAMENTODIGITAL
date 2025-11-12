@@ -80,6 +80,11 @@ public class IdleScreen : CanvasScreen
     
     public void StartGame(GameLanguage language)
     {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayButtonClickSound();
+        }
+        
         if (InputManager.Instance != null)
         {
             InputManager.Instance.NotifyStateChange();

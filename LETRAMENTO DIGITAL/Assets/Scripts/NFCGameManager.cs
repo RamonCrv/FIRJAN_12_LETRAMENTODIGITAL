@@ -304,6 +304,11 @@ public class NFCGameManager : MonoBehaviour
     {
         if (!isWaitingForNFC) return;
         
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayNFCReadSound();
+        }
+        
         Debug.Log($"[NFCGameManager] Cartão detectado - Thread ID: {System.Threading.Thread.CurrentThread.ManagedThreadId}");
         
         if (returnToMenuCoroutine != null)

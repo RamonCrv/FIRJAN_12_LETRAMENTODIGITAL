@@ -125,6 +125,11 @@ public class FinalScreen : CanvasScreen
     
     public void SetResults(int correctAnswers, int totalQuestions)
     {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayGameEndSound();
+        }
+        
         DisplayResults(correctAnswers, totalQuestions);
         StartAutoReturnTimer();
         UpdateScoreBars();
