@@ -17,7 +17,7 @@
     },
     {
       "id": "cta",
-      "portuguese": "Aproxime o card START para iniciar",
+      "portuguese": "Aproxime o card COMEÇAR para iniciar\n\nTap the card START to begin",
       "english": "Tap the START card to begin"
     },
     {
@@ -47,8 +47,8 @@
     },
     {
       "id": "confirmation_popup",
-      "portuguese": "Tem certeza que deseja reiniciar?",
-      "english": "Are you sure you want to restart?"
+      "portuguese": "deseja sair do jogo",
+      "english": "restart the game?"
     },
     {
       "id": "EndingTitle",
@@ -77,8 +77,8 @@
     },
     {
       "id": "score1",
-      "portuguese": "APRENDIZADO CONTÍNUO",
-      "english": "CONTINUOUS LEARNING"
+      "portuguese": "IA E BIG DATA",
+      "english": "AI AND BIG DATA"
     },
     {
       "id": "score2",
@@ -87,8 +87,13 @@
     },
     {
       "id": "score3",
-      "portuguese": "CURIOSIDADE",
-      "english": "CURIOSITY"
+      "portuguese": "PENSAMENTO CRIATIVO",
+      "english": "CREATIVE THINKING"
+    },
+    {
+      "id": "popupExplanation",
+      "portuguese": "Escaneie o cartão COMEÇAR para confirmar",
+      "english": "Scan the START card to confirm"
     }
   ]
 }

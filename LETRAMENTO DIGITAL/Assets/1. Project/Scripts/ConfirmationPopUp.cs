@@ -18,6 +18,9 @@ public class ConfirmationPopUp : MonoBehaviour
     [Header("Auto Close Settings")]
     [SerializeField] private float autoCloseTime = 5f;
     
+    [Header("Startup Protection")]
+    [SerializeField] private float startupDelayTime = 5f;
+    
     public static ConfirmationPopUp Instance { get; private set; }
     
     private bool isActive = false;
@@ -25,6 +28,7 @@ public class ConfirmationPopUp : MonoBehaviour
     private Action onCancel;
     private Coroutine autoCloseCoroutine;
     private float remainingTime;
+    private float gameStartTime;
     
     void Awake()
     {
@@ -50,6 +54,7 @@ public class ConfirmationPopUp : MonoBehaviour
     
     void Start()
     {
+        gameStartTime = Time.time;
         SubscribeToInputs();
     }
     
@@ -106,6 +111,10 @@ public class ConfirmationPopUp : MonoBehaviour
     
     public void ShowConfirmationPopup(Action onConfirmCallback, Action onCancelCallback = null)
     {
+        if (!CanShowPopup())
+        {
+            return;
+        }
         
         onConfirm = onConfirmCallback;
         onCancel = onCancelCallback;
@@ -115,8 +124,23 @@ public class ConfirmationPopUp : MonoBehaviour
     
     public void ShowExitConfirmation(Action onConfirmCallback, Action onCancelCallback = null)
     {
+        if (!CanShowPopup())
+        {
+            return;
+        }
         
         ShowConfirmationPopup(onConfirmCallback, onCancelCallback);
+    }
+    
+    private bool CanShowPopup()
+    {
+        float timeSinceStart = Time.time - gameStartTime;
+        return timeSinceStart >= startupDelayTime;
+    }
+    
+    public void ResetStartupTimer()
+    {
+        gameStartTime = Time.time;
     }
     
     private void ShowPopup()

@@ -144,6 +144,12 @@ public class DigitalLiteracyGameController : MonoBehaviour
         {
             InputManager.Instance.NotifyStateChange();
         }
+        
+        if (ConfirmationPopUp.Instance != null)
+        {
+            ConfirmationPopUp.Instance.ResetStartupTimer();
+        }
+        
         ScreenManager.SetCallScreen("IdleScreen");
     }
     

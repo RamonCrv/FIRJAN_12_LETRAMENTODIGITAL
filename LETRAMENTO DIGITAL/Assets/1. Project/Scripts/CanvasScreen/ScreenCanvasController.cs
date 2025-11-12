@@ -56,9 +56,13 @@ public class ScreenCanvasController : MonoBehaviour
     }
     public void ResetGame()
     {
-        
         inactiveTimer = 0;
         ScreenManager.CallScreen(inicialScreen);
+        
+        if (ConfirmationPopUp.Instance != null)
+        {
+            ConfirmationPopUp.Instance.ResetStartupTimer();
+        }
     }
     public void OnScreenCall(string name)
     {
