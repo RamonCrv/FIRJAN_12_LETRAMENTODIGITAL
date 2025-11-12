@@ -2,22 +2,29 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using System.Collections;
 
 public class ConfirmationPopUp : MonoBehaviour
 {
     [Header("Popup Components")]
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private TextMeshProUGUI confirmationText;
+    [SerializeField] private TextMeshProUGUI timerText;
     
     [Header("Input IDs")]
     [SerializeField] private int confirmInputId = 0;
-    [SerializeField] private int alternateConfirmInputId = -1; // Changed from 1 to -1 so only A and Z confirm
+    [SerializeField] private int alternateConfirmInputId = -1;
+    
+    [Header("Auto Close Settings")]
+    [SerializeField] private float autoCloseTime = 5f;
     
     public static ConfirmationPopUp Instance { get; private set; }
     
     private bool isActive = false;
     private Action onConfirm;
     private Action onCancel;
+    private Coroutine autoCloseCoroutine;
+    private float remainingTime;
     
     void Awake()
     {
@@ -64,6 +71,8 @@ public class ConfirmationPopUp : MonoBehaviour
     void HandleInputTriggered(int inputId)
     {
         if (!isActive) return;
+        
+        StopAutoClose();
         
         if (IsResetInput(inputId))
         {
@@ -123,11 +132,15 @@ public class ConfirmationPopUp : MonoBehaviour
         {
             gameObject.SetActive(true);
         }
+        
+        StartAutoClose();
     }
     
     private void HidePopup()
     {
         isActive = false;
+        StopAutoClose();
+        
         if (canvasGroup != null)
         {
             canvasGroup.alpha = 0f;
@@ -138,6 +151,44 @@ public class ConfirmationPopUp : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+    
+    private void StartAutoClose()
+    {
+        StopAutoClose();
+        autoCloseCoroutine = StartCoroutine(AutoCloseCountdown());
+    }
+    
+    private void StopAutoClose()
+    {
+        if (autoCloseCoroutine != null)
+        {
+            StopCoroutine(autoCloseCoroutine);
+            autoCloseCoroutine = null;
+        }
+        
+        if (timerText != null)
+        {
+            timerText.text = string.Empty;
+        }
+    }
+    
+    private IEnumerator AutoCloseCountdown()
+    {
+        remainingTime = autoCloseTime;
+        
+        while (remainingTime > 0f)
+        {
+            if (timerText != null)
+            {
+                timerText.text = $"{Mathf.CeilToInt(remainingTime)}s";
+            }
+            
+            remainingTime -= Time.deltaTime;
+            yield return null;
+        }
+        
+        CancelAction();
     }
     
     private void ConfirmAction()
