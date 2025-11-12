@@ -57,7 +57,7 @@ public class QuestionScreen : CanvasScreen
         if (ConfirmationPopUp.Instance != null && ConfirmationPopUp.Instance.IsActive()) return;
         
         // InputId corresponde diretamente ao índice da resposta para números 0-9
-        if (inputId >= 0 && inputId <= 9)
+        if (inputId >= 0)
         {
             SubmitAnswer(inputId);
         }

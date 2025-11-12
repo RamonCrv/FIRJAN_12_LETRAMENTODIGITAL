@@ -2665,7 +2665,7 @@ MonoBehaviour:
   inputConfig: {fileID: 11400000, guid: 4147a397485fc614e9910bc2673bddb4, type: 2}
   enableGlobalReset: 1
   resetInputIds: 00000000ffffffff
-  resetCooldownTime: 0.5
+  resetCooldownTime: 3
 --- !u!114 &1191939838
 MonoBehaviour:
   m_ObjectHideFlags: 0
