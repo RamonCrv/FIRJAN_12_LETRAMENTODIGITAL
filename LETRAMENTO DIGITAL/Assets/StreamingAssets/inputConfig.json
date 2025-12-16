@@ -37,9 +37,9 @@
       "description": "Verifica a origem e autenticidade de imagens na internet."
     },
     {
-      "inputId": 4,
+      "inputId": 22,
       "inputName": "Digital Communication Tool",
-      "keyCode": "E",
+      "keyCode": "S",
       "titleEnglish": "Digital Communication Tool",
       "titlePortuguese": "Ferramenta de comunicação digital",
       "iconPath": "Files/iconTest.png",
@@ -138,7 +138,7 @@
     {
       "inputId": 15,
       "inputName": "Cloud Collaborative Editing Platform",
-      "keyCode": "P",
+      "keyCode": "Q",
       "titleEnglish": "Cloud Collaborative Editing Platform",
       "titlePortuguese": "Plataforma de edição colaborativa em nuvem",
       "iconPath": "Files/cloud.png",
@@ -147,9 +147,9 @@
     {
       "inputId": 16,
       "inputName": "Slide Presentation Platform",
-      "keyCode": "Q",
+      "keyCode": "E",
       "titleEnglish": "Slide Presentation Platform",
-      "titlePortuguese": "Plataforma de apresentação de slides",
+      "titlePortuguese": "Plataforma de apreellkkkeesentação de slides",
       "iconPath": "Files/search.png",
       "description": "Cria e exibe conteúdos visuais para reuniões e palestras."
     },
@@ -229,10 +229,10 @@
       "inputId": -1,
       "inputName": "Letter Z",
       "keyCode": "Z",
-      "titleEnglish": "Letter Z",
-      "titlePortuguese": "Letra Z",
+      "titleEnglish": "START cart",
+      "titlePortuguese": "START card",
       "iconPath": "Files/iconTest.png",
-      "description": "Letter Z input"
+      "description": "Use this card to start game in English"
     }
   ]
 }
